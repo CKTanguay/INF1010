@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AttaqueMagique">
+    <Position X="2.5" Y="0.5" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAIACAAAAAAAgAAAACBEAAAAAAQAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>AttaqueMagique.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AttaqueMagiqueConfusion">
+    <Position X="0.5" Y="4" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAIAAAAAAAACAEAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>AttaqueMagiqueConfusion.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AttaqueMagiquePoison">
+    <Position X="4.5" Y="4" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAABACAAAAAAAAAgAAAAEAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>AttaqueMagiquePoison.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Creature" Collapsed="true">
+    <Position X="12.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAGFAEAAAgAABAARAnQACZCyFIpAJRCACAIgAEAIAAA=</HashCode>
+      <FileName>Creature.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CreatureMagique" Collapsed="true">
+    <Position X="12.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAEAAAAAAAoCQAAAAAAAAAAACACgAEAAAAA=</HashCode>
+      <FileName>CreatureMagique.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dresseur" Collapsed="true">
+    <Position X="8" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RAAAAEAIAAAAAAgAACUAASAAIAAgAYAQAAQAgAAIAEA=</HashCode>
+      <FileName>Dresseur.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjetMagique" Collapsed="true">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAIAAEAAAAAACYCAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>ObjetMagique.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PolyLand" Collapsed="true">
+    <Position X="8" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAgBEEAAAAAAAAAAQUAAQAAQAAQEQAAAAAAAAAAAAA=</HashCode>
+      <FileName>PolyLand.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pouvoir" Collapsed="true">
+    <Position X="9.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAEAAAAAAAAAAACQAAQAAAAARACAQQAAgAAAAQQA=</HashCode>
+      <FileName>Pouvoir.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

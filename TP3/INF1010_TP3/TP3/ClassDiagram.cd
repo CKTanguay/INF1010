@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Creature" Collapsed="true">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AYBtIEAEAAAABAAEC8YAKYKyAAgAIiCAAACwAEgAAAg=</HashCode>
+      <FileName>Creature.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CreatureMagique" Collapsed="true">
+    <Position X="11.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAKAAAAAAAAAAAACACAAEAAAAA=</HashCode>
+      <FileName>CreatureMagique.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dresseur">
+    <Position X="5.5" Y="6.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>BAAQIEIgAAAACAAAAAUAAQAAAAAhEwCAAAQAAAAJAEA=</HashCode>
+      <FileName>Dresseur.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Elixir" Collapsed="true">
+    <Position X="0.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Elixir.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EtatConfus" Collapsed="true">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAgAAAAAAAAAAAAAAAACQIAAAAAAA=</HashCode>
+      <FileName>EtatConfus.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EtatCreature" Collapsed="true">
+    <Position X="3" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAEAAgCAAAAAAgAAAAAAACQAAAgAAACQAAAAAAAA=</HashCode>
+      <FileName>EtatCreature.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EtatEmpoisonne" Collapsed="true">
+    <Position X="0.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAACQAAAAgAAA=</HashCode>
+      <FileName>EtatEmpoisonne.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EtatEndormi" Collapsed="true">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAACAAAAAAAAACQAAAAAgAA=</HashCode>
+      <FileName>EtatEndormi.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GreenBull" Collapsed="true">
+    <Position X="2.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GreenBull.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjetMagique" Collapsed="true">
+    <Position X="1.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIEAIABAAAACAAAAKAAAAAAAAAgAAAAAAAAAAABA=</HashCode>
+      <FileName>ObjetMagique.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OutilScientifique" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAIEAAAAAgAAIAIAAAAAAAAAAACgBAAAAAAAAAAAA=</HashCode>
+      <FileName>OutilScientifique.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PolyLand" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAgBEEAAAAAAAAAAQUAAQAAQAAQEQAAAAAAAAAAAAA=</HashCode>
+      <FileName>PolyLand.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PotionMagique" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>PotionMagique.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pouvoir" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIgIEAAQCAgAAEAAAAAAUAAAQAQBgAQAAAgAAAAQAA=</HashCode>
+      <FileName>Pouvoir.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PouvoirHallucinogene" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIIAAAgAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PouvoirHallucinogene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PouvoirPoison" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIIAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>PouvoirPoison.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PouvoirSoporifique" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIIAAAAAAAAAAAAAAgAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PouvoirSoporifique.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Professeur" Collapsed="true">
+    <Position X="9" Y="8.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAQAAEAAAAAAAAAAAAAAAAABAIAACgAAAAAAA=</HashCode>
+      <FileName>Professeur.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="TypeEtat" Collapsed="true">
+    <Position X="11" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAASAgAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>TypeEtat.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
