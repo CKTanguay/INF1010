@@ -153,6 +153,7 @@
     <ClInclude Include="CreatureMagique.h" />
     <ClInclude Include="Dresseur.h" />
     <ClInclude Include="Foncteur.h" />
+    <ClInclude Include="MondeMagique.h" />
     <ClInclude Include="ObjetMagique.h" />
     <ClInclude Include="PolyLand.h" />
     <ClInclude Include="Pouvoir.h" />
