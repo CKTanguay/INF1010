@@ -7,7 +7,7 @@
 
 using namespace std;
 
-template<typename T, typename S>
+template<typename T, typename S, class PredicatUnaire>
 
 class MondeMagique
 {
@@ -27,13 +27,16 @@ public:
 
 	void ajouter(const S& compagnon);
 
+
 	void supprimer(const T& maitre);
 
 	void supprimer(const S& compagnon);
 
 	//ne pas oublier de creer un iterateur pour find!!
 
-	void supprimerMaitre()
+	void supprimerMaitre(PredicatUnaire foncteur);		//predicat unaire?
+
+	void supprimerCompagnon(PredicatUnaire foncteur);
 
 private:
 	list<T*> listMaitre_;
@@ -42,10 +45,16 @@ private:
 };
 
 
-template<typename T, typename S>
-MondeMagique<T, S>::MondeMagique()
+template<typename T, typename S, class PredicatUnaire>
+MondeMagique<T, S, PredicatUnaire>::MondeMagique()
 {
 
+}
+
+template<typename T, typename S, class PredicatUnaire>
+void MondeMagique<T, S, PredicaUnaire>::supprimerMaitre(PredicatUnaire foncteur)
+{
+	remove_if(listMai)
 }
 
 
