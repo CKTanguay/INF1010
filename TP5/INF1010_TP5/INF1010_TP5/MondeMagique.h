@@ -33,8 +33,9 @@ public:
 	void supprimer(const S& compagnon);
 
 	//ne pas oublier de creer un iterateur pour find!!
+	//faire un foncteur pour supprimer maitre
 
-	void supprimerMaitre(PredicatUnaire foncteur);		//predicat unaire?
+	void supprimerMaitre(PredicatUnaire foncteur);
 
 	void supprimerCompagnon(PredicatUnaire foncteur);
 
@@ -52,9 +53,9 @@ MondeMagique<T, S, PredicatUnaire>::MondeMagique()
 }
 
 template<typename T, typename S, class PredicatUnaire>
-void MondeMagique<T, S, PredicaUnaire>::supprimerMaitre(PredicatUnaire foncteur)
+void MondeMagique<T, S, PredicatUnaire>::supprimerMaitre(PredicatUnaire foncteur)
 {
-	remove_if(listMai)
+	remove_if(listMaitre_.begin(), listMaitre_.end(), foncteur);
 }
 
 
