@@ -159,12 +159,17 @@ int main()
 	// A COMPLETER...
 
 
-	std::cout << std::endl << "FIN DE POLYLAND ... :(" << std::endl;
-	std::cout << "Vous supprimer Sacha de polyland" << std::endl;
+	std::cout << std::endl << "FIN DE POLYLAND ... :(" << std::endl << std::endl;
+	
+	// Supprimer Touflamme de polyland à l'aide de la méthode supprimerCompagnon et le FoncteurCreaturesDeMemeNom
+	// A COMPLETER...	
+
 	polyland -= &sacha;
-	std::cout << "Vous supprimer Pokachu de polyland" << std::endl;
 	polyland -= &pokachu;
 
+	// Affichage de polyand
+	std::cout << polyland << std::endl;
+	
 	polyland.vider();
 
 	system("pause");
