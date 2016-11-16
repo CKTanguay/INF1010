@@ -67,10 +67,78 @@ public:
 	~FoncteurCreatureDeMemeNom() {}
 	FoncteurCreatureDeMemeNom(const std::string& nom) :nom_(nom) {}
 
+	bool operator()(const Creature* creature) const
+	{
+		return(nom_ == creature->obtenirNom());
+	}
 
 
 private:
 	std::string nom_;
+};
+
+
+class FoncteurEgalCreatures
+{
+public:
+	FoncteurEgalCreatures() {}
+	~FoncteurEgalCreatures() {}
+	FoncteurEgalCreatures(Creature* creature) :creature_(creature) {}
+
+	bool operator()(const Creature* creature) const
+	{
+		return(creature_ == creature);
+	}
+
+private:
+	Creature* creature_;
+};
+
+
+class FoncteurCreatureVie
+{
+public:
+	FoncteurCreatureVie() {}
+	~FoncteurCreatureVie() {}
+	FoncteurCreatureVie(unsigned int vieMinimale, unsigned int vieMaximale) :vieMinimale_(vieMinimale), vieMaximale_(vieMaximale), compteur_(0) {}
+
+	void operator()(const Creature* creature)
+	{
+		if (creature->obtenirPointDeVie() > vieMinimale_ && creature->obtenirPointDeVie() < vieMaximale_)
+			compteur_++;
+	}
+
+	unsigned int getCompteur() const
+	{
+		return compteur_;
+	}
+
+
+private:
+	unsigned int vieMinimale_;
+	unsigned int vieMaximale_;
+	unsigned int compteur_;
+
+};
+
+class FoncteurGenerateurNombresAlea
+{
+public:
+	FoncteurGenerateurNombresAlea() :borneInferieure_(RAND_MIN_DEFAUT), borneSuperrieure_(RAND_MAX_DEFAUT) {}
+	~FoncteurGenerateurNombresAlea() {}
+	FoncteurGenerateurNombresAlea(unsigned int borneMinimale, unsigned int borneMaximale) :borneInferieure_(borneMinimale), 
+		borneSuperrieure_(borneMaximale) {}
+
+	unsigned int operator()()
+	{
+		return(rand() % (borneSuperrieure_ - borneInferieure_ + 1) + borneInferieure_);
+	}
+
+private:
+	unsigned int borneInferieure_;
+	unsigned int borneSuperrieure_;
+
+
 };
 
 #endif;
