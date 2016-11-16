@@ -7,7 +7,7 @@
 
 using namespace std;
 
-template<typename T, typename S, class PredicatUnaire>
+template<typename T, typename S>
 
 class MondeMagique
 {
@@ -35,9 +35,16 @@ public:
 	//ne pas oublier de creer un iterateur pour find!!
 	//faire un foncteur pour supprimer maitre
 
+	template<class PredicatUnaire>
 	void supprimerMaitre(PredicatUnaire foncteur);
 
+	template<class PredicatUnaire>
 	void supprimerCompagnon(PredicatUnaire foncteur);
+
+	void vider();
+
+	//operateur +=
+	//operateur -=
 
 private:
 	list<T*> listMaitre_;
@@ -46,16 +53,36 @@ private:
 };
 
 
-template<typename T, typename S, class PredicatUnaire>
-MondeMagique<T, S, PredicatUnaire>::MondeMagique()
-{
+template<typename T, typename S>
+MondeMagique<T, S>::MondeMagique() {}
 
-}
+template<typename T, typename S>
+MondeMagique<T, S>::~MondeMagique() {}
 
-template<typename T, typename S, class PredicatUnaire>
-void MondeMagique<T, S, PredicatUnaire>::supprimerMaitre(PredicatUnaire foncteur)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+template<typename T, typename S>
+template<class PredicatUnaire>
+void MondeMagique<T, S>::supprimerMaitre(PredicatUnaire foncteur)
 {
-	remove_if(listMaitre_.begin(), listMaitre_.end(), foncteur);
+	listMaitre_.remove_if(listMaitre_.begin(), listMaitre_.end(), foncteur);
 }
 
 
