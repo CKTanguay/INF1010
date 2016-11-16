@@ -113,13 +113,12 @@ public:
 		return compteur_;
 	}
 
-
 private:
 	unsigned int vieMinimale_;
 	unsigned int vieMaximale_;
 	unsigned int compteur_;
-
 };
+
 
 class FoncteurGenerateurNombresAlea
 {
@@ -137,8 +136,6 @@ public:
 private:
 	unsigned int borneInferieure_;
 	unsigned int borneSuperrieure_;
-
-
 };
 
 #endif;
