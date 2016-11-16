@@ -22,7 +22,7 @@ public:
 
 	virtual std::string obtenirTypeAttaque() const { return typeid(AttaqueMagique).name(); }
 
-    virtual void appliquerAttaque(Creature& creature) = 0; //à appliquer sur la créature qui possède ce pouvoir // À MODIFIER (si nécessaire...)
+	virtual void appliquerAttaque(Creature& creature) = 0; //à appliquer sur la créature qui possède ce pouvoir // À MODIFIER (si nécessaire...)
 	virtual bool estFini() const { return true;	} //si vrai, informe la créature qu'elle peut retourner à l'état normal // À MODIFIER (si nécessaire...)
 
 	friend std::ostream& operator<<(std::ostream& o, const AttaqueMagique& attaqueMagique) // À MODIFIER (si nécessaire...)
@@ -31,7 +31,7 @@ public:
 	} 
 
 protected:
-    unsigned int duree_;
+	unsigned int duree_;
 };
 #endif
 
