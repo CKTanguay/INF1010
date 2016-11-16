@@ -62,22 +62,6 @@ MondeMagique<T, S>::~MondeMagique() {}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 template<typename T, typename S>
 template<class PredicatUnaire>
 void MondeMagique<T, S>::supprimerMaitre(PredicatUnaire foncteur)
