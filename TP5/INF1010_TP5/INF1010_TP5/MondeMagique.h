@@ -69,9 +69,9 @@ list<T*> MondeMagique<T, S>::getListMaitre() const
 
 
 template<typename T, typename S>
-void MondeMagique<T, S>::setListMaitre(const list<T*> listMaitre)	//attention a leperluette en haut
+void MondeMagique<T, S>::setListMaitre(const list<T*> listMaitre)	//cest bon ici
 {
-
+	//remplacer list par celle en param -> erase la listmaitre_ et remplacer par lautre
 }
 
 
