@@ -46,7 +46,7 @@ public:
 	//operateur +=
 	//operateur -=
 
-private:
+protected:
 	list<T*> listMaitre_;
 	list<S*> listCompagnon_;
 
@@ -56,9 +56,31 @@ private:
 template<typename T, typename S>
 MondeMagique<T, S>::MondeMagique() {}
 
+
 template<typename T, typename S>
 MondeMagique<T, S>::~MondeMagique() {}
 
+
+template<typename T, typename S>
+list<T*> MondeMagique<T, S>::getListMaitre() const
+{
+	return listMaitre_;
+}
+
+
+template<typename T, typename S>
+void MondeMagique<T, S>::setListMaitre(const list<T*> listMaitre)	//attention a leperluette en haut
+{
+
+}
+
+
+
+template<typename T, typename S>
+list<S*> MondeMagique<T, S>::getListCompagnon() const
+{
+	return listCompagnon_;
+}
 
 
 
