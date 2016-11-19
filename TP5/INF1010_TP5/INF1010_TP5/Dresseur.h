@@ -11,10 +11,13 @@ Description: les dresseurs sont les etres capables d'attraper des creatures
 #include <string>
 #include <iostream>
 #include <list>
+#include <iterator>
+#include <algorithm>
 
 #include "Creature.h"
 #include "ObjetMagique.h"
-
+#include "Foncteur.h"
+using namespace std;
 class Dresseur
 {
 public:
@@ -48,11 +51,19 @@ public:
 	bool operator==(const std::string& nom) const;
 	friend bool operator==(const std::string& nom, const Dresseur& dresseur);
 
+	template<class PredicatUnaire>
+	void appliquerFoncteurUnaire(PredicatUnaire foncteur);
+
+	template<class PredicatUnaire>
+	void supprimerElement(PredicatUnaire foncteur);
+
+	Creature* obtenirCreatureMax(PredicatUnaire foncteur);
 private:
 	std::string nom_;
 	std::string equipe_;
 	ObjetMagique objetMagique_;
-	// À COMPLÉTER !! créatures
+	list<Creature*> creatures_;
+	
 
 };
 

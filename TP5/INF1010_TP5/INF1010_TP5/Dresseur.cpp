@@ -38,13 +38,16 @@ auto Dresseur::obtenirCreatures() const
 
 Creature* Dresseur::obtenirUneCreature(const std::string& nom) const //À MODIFIFIER !!
 {
-    /*complétez moi*/
-	return;
+	auto it =find_if(creatures_.begin(), creatures_.end(), FoncteurCreatureDeMemeNom(nom));
+	if (it != creatures_.end()) {
+		return *it;
+	}
+	return nullptr;
 }
 
 void Dresseur::modifierCreature(std::list<Creature*> creatures) //A Compléter
 {
-	creatures_ = creatures;
+	creatures_=creatures;
 }
 
 bool Dresseur::ajouterCreature(Creature* creature) 
@@ -60,7 +63,7 @@ bool Dresseur::ajouterCreature(Creature* creature)
 
 bool Dresseur::enleverCreature(const std::string& nom) 
 {
-    FoncteurCreaturesDeMemeNom foncteurComparaison(nom);
+    FoncteurCreatureDeMemeNom foncteurComparaison(nom);
     auto position = find_if(creatures_.begin(), creatures_.end(), foncteurComparaison);
     if (position == creatures_.end())
         return false;
@@ -113,10 +116,13 @@ bool Dresseur::operator==(const Dresseur& dresseur) const //A compléter
         return true;
     else if (creatures_.size() != dresseur.creatures_.size())
         return false;
-
-    /*Complétez moi! Vérifiez l'égalité entre les créatures via
-    find_if*/
-
+	auto reference(dresseur.obtenirCreatures());
+	for (auto it = creatures_.begin(); it != creatures_.end(); it++) {
+		auto itr = find_if(reference.begin(), reference.end(), FoncteurEgalCreatures(*it));
+		if (itr != creatures_.end())
+			reference.erase(itr);
+		else return false;
+	}
 	return true;
 }
 
@@ -134,4 +140,17 @@ std::ostream& operator<<(std::ostream& os, const Dresseur& dresseur)
 {
     return os << dresseur.nom_ << " possede " << dresseur.creatures_.size() 
         << " creature(s) et appartient a l'equipe " << dresseur.equipe_ << std::endl;
+}
+template<class PredicatUnaire>
+void Dresseur::supprimerElement(PredicatUnaire foncteur) {
+	creatures_ = erase_if(creatures_.begin();creatures_.end(); fonteur); // p-e pas bon
+}
+template<class PredicatUnaire>
+Creature* Dresseur::obtenirCreatureMax(PredicatUnaire foncteur) { // surment pas bon
+	auto itr = find_if(creatures_.begin();creatures_.end(); foncteur); 
+	return *itr;
+}
+template<class PredicatUnaire>
+void Dresseur::obtenirCreatureMax(PredicatUnaire foncteur) { 
+	for_each(creatures_.begin();creatures_.end(); foncteur);
 }
