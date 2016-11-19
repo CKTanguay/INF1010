@@ -15,7 +15,6 @@ Description: Polyland represente le pays que l'on va explorer, il va contenir
 #include <vector>
 #include <iostream>
 
-//template ici
 class PolyLand : public MondeMagique<Dresseur, Creature>
 {
 public:

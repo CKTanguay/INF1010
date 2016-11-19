@@ -17,15 +17,15 @@ public:
 
 	list<T*> getListMaitre() const;
 
-	void setListMaitre(const T& maitre);
+	void setListMaitre(const list<T*>& maitre);
 
 	list<S*> getListCompagnon() const;
 
-	void setListCompagnon(const S& compagnon);
+	void setListCompagnon(const list<S*>& compagnon);
 
-	void ajouter(const T& maitre);
+	void ajouterMaitre(const T& maitre);
 
-	void ajouter(const S& compagnon);
+	void ajouterCompagnon(const S& compagnon);
 
 
 	void supprimer(const T& maitre);
@@ -69,11 +69,10 @@ list<T*> MondeMagique<T, S>::getListMaitre() const
 
 
 template<typename T, typename S>
-void MondeMagique<T, S>::setListMaitre(const list<T*> listMaitre)	//cest bon ici
+void MondeMagique<T, S>::setListMaitre(const list<T*>& listMaitre)		//vraiment pas sur ici si cest bon
 {
-	//remplacer list par celle en param -> erase la listmaitre_ et remplacer par lautre
+	listMaitre_ = listMaitre;
 }
-
 
 
 template<typename T, typename S>
@@ -81,6 +80,37 @@ list<S*> MondeMagique<T, S>::getListCompagnon() const
 {
 	return listCompagnon_;
 }
+
+
+template<typename T, typename S>
+void MondeMagique<T, S>::setListCompagnon(const list<S*>& listCompagnon)
+{
+	listCompagnon_ = listCompagnon;
+}
+
+
+template<typename T, typename S>
+void MondeMagique<T, S>::ajouterMaitre(const T& maitre)
+{
+	listMaitre_.push_back(maitre);
+}
+
+
+template<typename T, typename S>
+void MondeMagique<T, S>::ajouterCompagnon(const S& compagnon)
+{
+	listCompagnon_.push_back(compagnon);
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -94,4 +124,3 @@ void MondeMagique<T, S>::supprimerMaitre(PredicatUnaire foncteur)
 
 
 #endif
-
