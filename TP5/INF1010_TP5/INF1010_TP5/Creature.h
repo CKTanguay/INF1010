@@ -76,7 +76,7 @@ protected:
 	
 };
 template<class PredicatBinaire>
-void Dresseur::TrierPouvoirs(PredicatBinaire foncteur) {
+void Creature::trierPouvoirs(PredicatBinaire foncteur) {
 	sort(pouvoirs.begin(), pouvoirs.end(), foncteur);
 }
 #endif

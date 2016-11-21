@@ -68,16 +68,22 @@ int main()
 	// A COMPLETER...
 	polyland += vous;
 	polyland += sacha;
-
+	polyland += pokachu;
+	polyland += salimouche;
+	polyland += pokachoum;
+	polyland += touflamme;
 	// En vous promenant dans Polyland, vous attrappez un pokachu et Sacha attrappe un salimouche et un touflamme
 	// A COMPLETER...
+	vous.ajouterCreature(&pokachu);
+	sacha.ajouterCreature(&salimouche);
+	sacha.ajouterCreature(&touflamme);
 
 
 	std::cout << "TEST AFFICHAGE" << std::endl;
 	std::cout << "pouvoir de la creature avant trie" << std::endl;
 	std::cout << pokachu << std::endl;
 
-	pokachu.trierPouvoir(FoncteurComparerPouvoir());
+	pokachu.trierPouvoirs(FoncteurComparerPouvoirs());
 	std::cout << "pouvoir de la creature apres trie" << std::endl;
 	std::cout << pokachu << std::endl;
 

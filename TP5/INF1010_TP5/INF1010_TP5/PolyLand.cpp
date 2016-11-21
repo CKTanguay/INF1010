@@ -20,7 +20,12 @@ bool PolyLand::relacherCreature(Dresseur* dresseur, const std::string& nomCreatu
 {
 	return dresseur->enleverCreature(nomCreature);
 }
-std::ostream& operator<<(std::ostream& os, const PolyLand& polyland)
+ostream& operator<<(std::ostream& os, const PolyLand& polyland)
 {
+	sort(polyland.listCompagnon_.begin(), polyland.listCompagnon_.end(), FoncteurComparerCreatures());
+	sort(polyland.listMaitre_.begin(), polyland.listMaitre_.end(), FoncteurComparerDresseurs());
 
-	return os << 
+
+}
+
+	
