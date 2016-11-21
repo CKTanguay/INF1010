@@ -23,16 +23,13 @@ public:
 
 	void setListCompagnon(const list<S*>& compagnon);
 
-	void ajouterMaitre(const T& maitre);
+	void ajouterMaitre(T& maitre);
 
-	void ajouterCompagnon(const S& compagnon);
+	void ajouterCompagnon(S& compagnon);
 
 	void supprimer(const T& maitre);
 
 	void supprimer(const S& compagnon);
-
-	//ne pas oublier de creer un iterateur pour find!!
-	//faire un foncteur pour supprimer maitre
 
 	template<class PredicatUnaire>
 	void supprimerMaitre(PredicatUnaire foncteur);
@@ -42,8 +39,11 @@ public:
 
 	void vider();
 
-	//MondeMagique//op+=
-	//operateur -=
+	MondeMagique& operator+=(T& maitre);
+	MondeMagique& operator+=(S& compagnon);
+
+	MondeMagique& operator-=(const T& maitre);
+	MondeMagique& operator-=(const S& compagnon);
 
 protected:
 	std::list<S*> listCompagnon_;
@@ -69,7 +69,7 @@ list<T*> MondeMagique<T, S>::getListMaitre() const
 
 
 template<typename T, typename S>
-void MondeMagique<T, S>::setListMaitre(const list<T*>& listMaitre)		//vraiment pas sur ici si cest bon
+void MondeMagique<T, S>::setListMaitre(const list<T*>& listMaitre)
 {
 	listMaitre_ = listMaitre;
 }
@@ -90,16 +90,16 @@ void MondeMagique<T, S>::setListCompagnon(const list<S*>& listCompagnon)
 
 
 template<typename T, typename S>
-void MondeMagique<T, S>::ajouterMaitre(const T& maitre)
+void MondeMagique<T, S>::ajouterMaitre(T& maitre)
 {
-	listMaitre_.push_back(maitre);
+	listMaitre_.push_back(&maitre);
 }
 
 
 template<typename T, typename S>
-void MondeMagique<T, S>::ajouterCompagnon(const S& compagnon)
+void MondeMagique<T, S>::ajouterCompagnon(S& compagnon)
 {
-	listCompagnon_.push_back(compagnon);
+	listCompagnon_.push_back(&compagnon);
 }
 
 
@@ -112,7 +112,6 @@ void MondeMagique<T, S>::supprimer(const T& maitre)
 		listMaitre_.erase(positionM);
 	}
 }
-
 
 
 template<typename T, typename S>
@@ -149,5 +148,34 @@ void MondeMagique<T, S>::vider()
 }
 
 
+template<typename T, typename S>
+MondeMagique<T, S>& MondeMagique<T, S>::operator+=(T& maitre)
+{
+	this->ajouterMaitre(maitre);
+	return *this;
+}
 
+
+template<typename T, typename S>
+MondeMagique<T, S>& MondeMagique<T, S>::operator+=(S& compagnon)
+{
+	this->ajouterCompagnon(compagnon);
+	return *this;
+}
+
+
+template<typename T, typename S>
+MondeMagique<T, S>& MondeMagique<T, S>::operator-=(const T& maitre)
+{
+	this->supprimer(maitre);
+	return *this;
+}
+
+
+template<typename T, typename S>
+MondeMagique<T, S>& MondeMagique<T, S>::operator-=(const S& compagnon)
+{
+	this->supprimer(compagnon);
+	return *this;
+}
 #endif

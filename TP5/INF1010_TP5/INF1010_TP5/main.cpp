@@ -147,10 +147,12 @@ int main()
 	// Cette map permettra de savoir quel dresseur a inscrit quelle créature!
 	// A COMPLETER...
 
+	std::map<Dresseur*, Creature*, FoncteurComparerDresseurs> creaturesInscrites;
 
 	//Vous désirez inscrire pokachu au tournoi
 	//Sacha désire inscrire touflamme au tournoi
 	// A COMPLETER...
+
 
 
 	std::cout << "Début MAP" << std::endl;
@@ -179,8 +181,8 @@ int main()
 	// Supprimer Touflamme de polyland à l'aide de la méthode supprimerCompagnon et le FoncteurCreaturesDeMemeNom
 	// A COMPLETER...	
 
-	polyland -= &sacha;
-	polyland -= &pokachu;
+	polyland -= sacha;
+	polyland -= pokachu;
 
 	// Affichage de polyand
 	std::cout << polyland << std::endl;

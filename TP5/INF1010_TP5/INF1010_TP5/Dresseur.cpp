@@ -6,6 +6,7 @@ Date de modification: 6 septembre 2016 par Maude Carrier
 */
 
 #include "Dresseur.h"
+#include "Foncteur.h"
 
 
 Dresseur::Dresseur() :nom_(""), equipe_("") {};
@@ -52,10 +53,10 @@ void Dresseur::modifierCreature(std::list<Creature*> creatures) //A Compléter
 
 bool Dresseur::ajouterCreature(Creature* creature) 
 {
-    FoncteurEgalCreatures comparaison(creature);
-    auto position_creature = find_if(creatures_.begin(), creatures_.end(), comparaison);
-    if (position_creature != creatures_.end())
-        return false;
+	FoncteurEgalCreatures comparaison(creature);
+	auto position_creature = find_if(creatures_.begin(), creatures_.end(), comparaison);
+	if (position_creature != creatures_.end())
+		return false;
 
 	creatures_.push_back(creature);
 	return true;
@@ -63,12 +64,12 @@ bool Dresseur::ajouterCreature(Creature* creature)
 
 bool Dresseur::enleverCreature(const std::string& nom) 
 {
-    FoncteurCreatureDeMemeNom foncteurComparaison(nom);
-    auto position = find_if(creatures_.begin(), creatures_.end(), foncteurComparaison);
-    if (position == creatures_.end())
-        return false;
+	FoncteurCreatureDeMemeNom foncteurComparaison(nom);
+	auto position = find_if(creatures_.begin(), creatures_.end(), foncteurComparaison);
+	if (position == creatures_.end())
+		return false;
 
-    creatures_.erase(position);
+	creatures_.erase(position);
 
 	return true;
 }
@@ -112,10 +113,10 @@ void Dresseur::modifierEquipe(const std::string& equipe)
 
 bool Dresseur::operator==(const Dresseur& dresseur) const //A compléter
 {
-    if (creatures_.size() == 0 && dresseur.creatures_.size() == 0)
-        return true;
-    else if (creatures_.size() != dresseur.creatures_.size())
-        return false;
+	if (creatures_.size() == 0 && dresseur.creatures_.size() == 0)
+		return true;
+	else if (creatures_.size() != dresseur.creatures_.size())
+		return false;
 	auto reference(dresseur.obtenirCreatures());
 	for (auto it = creatures_.begin(); it != creatures_.end(); it++) {
 		auto itr = find_if(reference.begin(), reference.end(), FoncteurEgalCreatures(*it));
@@ -138,6 +139,6 @@ bool operator==(const std::string& nom, const Dresseur& dresseur)
 
 std::ostream& operator<<(std::ostream& os, const Dresseur& dresseur)
 {
-    return os << dresseur.nom_ << " possede " << dresseur.creatures_.size() 
-        << " creature(s) et appartient a l'equipe " << dresseur.equipe_ << std::endl;
+	return os << dresseur.nom_ << " possede " << dresseur.creatures_.size() 
+		<< " creature(s) et appartient a l'equipe " << dresseur.equipe_ << std::endl;
 }

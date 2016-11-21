@@ -42,7 +42,7 @@ public:
 
 	bool operator()(const Dresseur* dresseur1, const Dresseur* dresseur2) const
 	{
-		return(dresseur1->obtenirNom() < dresseur2->obtenirNom());		
+		return (dresseur1->obtenirNom() < dresseur2->obtenirNom());		
 	}
 };
 
@@ -55,7 +55,7 @@ public:
 
 	bool operator()(const Pouvoir* pouvoir1, const Pouvoir* pouvoir2)
 	{
-		return(pouvoir1->obtenirNombreDeDegat() < pouvoir2->obtenirNombreDeDegat());
+		return (pouvoir1->obtenirNombreDeDegat() < pouvoir2->obtenirNombreDeDegat());
 	}
 };
 

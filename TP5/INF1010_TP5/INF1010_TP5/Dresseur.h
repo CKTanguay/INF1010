@@ -16,7 +16,7 @@ Description: les dresseurs sont les etres capables d'attraper des creatures
 
 #include "Creature.h"
 #include "ObjetMagique.h"
-#include "Foncteur.h"
+//#include "Foncteur.h"
 using namespace std;
 class Dresseur
 {
@@ -51,9 +51,15 @@ public:
 	bool operator==(const std::string& nom) const;
 	friend bool operator==(const std::string& nom, const Dresseur& dresseur);
 
+	template<typename PredicatUnaire>
 	void supprimerElements(PredicatUnaire foncteur);
+
+	template<typename PredicatUnaire>
 	Creature* obtenirCreatureMax(PredicatUnaire foncteur);
+
+	template<typename PredicatUnaire>
 	void appliquerFoncteurUnaire(PredicatUnaire foncteur);
+
 private:
 	std::string nom_;
 	std::string equipe_;
@@ -62,17 +68,28 @@ private:
 	
 
 };
+
+
 template<class PredicatUnaire>
-void Dresseur::supprimerElements(PredicatUnaire foncteur) {
-	creatures_ = erase_if(creatures_.begin(), creatures_.end(), fonteur); // p-e pas bon
+void Dresseur::supprimerElements(PredicatUnaire foncteur) 
+{
+	auto it = remove_if(creatures_.begin(), creatures_.end(), foncteur);
+	creatures_.erase(it, creatures_.end());
+	// p-e pas bon
 }
+
+
 template<class PredicatUnaire>
-Creature* Dresseur::obtenirCreatureMax(PredicatUnaire foncteur) { // surment pas bon
+Creature* Dresseur::obtenirCreatureMax(PredicatUnaire foncteur) 
+{ // surment pas bon
 	auto itr = max_element(creatures_.begin(), creatures_.end(), foncteur);
 	return *itr;
 }
+
+
 template<class PredicatUnaire>
-void Dresseur::appliquerFoncteurUnaire(PredicatUnaire foncteur) {
+void Dresseur::appliquerFoncteurUnaire(PredicatUnaire foncteur) 
+{
 	for_each(creatures_.begin(), creatures_.end(), foncteur);
 }
 #endif

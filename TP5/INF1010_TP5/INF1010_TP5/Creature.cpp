@@ -110,7 +110,7 @@ void Creature::attaquer(const Pouvoir & pouvoir, Creature & creature)
 			//l'attaque rate une fois sur 6
 			if (tentative != 3) {
 				std::cout << nom_ << " lance " << pouvoir.obtenirNom() << " qui inflige " 
-                            << degat << " degat a " << creature.obtenirNom() << std::endl;
+							<< degat << " degat a " << creature.obtenirNom() << std::endl;
 				if (degat > creature.obtenirPointDeVie()) {
 					creature.modifierPointDeVie(0);
 					int xp = experienceGagnee(creature);
@@ -136,7 +136,7 @@ int Creature::experienceGagnee(const Creature& creature)
 	if (creature.obtenirPointDeVie() <= 0) {
 		//Calcul de l'experience selon une formule 
 		int experience = (creature.obtenirNiveau() + 1 - niveau_) * ((creature.obtenirAttaque() + 5 - attaque_) 
-            * (creature.obtenirDefense() + 3 - defense_)) + (pointDeVie_ / 2);
+			* (creature.obtenirDefense() + 3 - defense_)) + (pointDeVie_ / 2);
 		if (experience > (experienceNecessaire_ - experience_)) {
 			int experienceRestante = experience - (experienceNecessaire_ - experience_);
 			niveau_++;
@@ -240,12 +240,12 @@ void Creature::modifierPouvoirs(std::vector<Pouvoir*> pouvoirs)
 Creature::Creature(const Creature& creature)
 	: nom_(creature.nom_), attaque_(creature.attaque_), defense_(creature.defense_), pointDeVie_(creature.pointDeVie_),
 	pointDeVieTotal_(creature.pointDeVieTotal_), energie_(creature.energie_), energieTotal_(creature.energieTotal_),
-    experience_(creature.experience_), experienceNecessaire_(creature.experienceNecessaire_), niveau_(creature.niveau_)
+	experience_(creature.experience_), experienceNecessaire_(creature.experienceNecessaire_), niveau_(creature.niveau_)
 {
-    for each (Pouvoir* pouvoir in  creature.pouvoirs_)
-    {
-        pouvoirs_.push_back(new Pouvoir(*pouvoir));
-    }
+	for each (Pouvoir* pouvoir in  creature.pouvoirs_)
+	{
+		pouvoirs_.push_back(new Pouvoir(*pouvoir));
+	}
 }
 
 Creature& Creature::operator=(const Creature& creature)
@@ -256,23 +256,23 @@ Creature& Creature::operator=(const Creature& creature)
 		attaque_ = creature.attaque_;
 		defense_ = creature.defense_;
 		pointDeVie_ = creature.pointDeVie_;
-        pointDeVieTotal_ = creature.pointDeVieTotal_;
+		pointDeVieTotal_ = creature.pointDeVieTotal_;
 		energie_ = creature.energie_;
-        energieTotal_ = creature.energieTotal_;
+		energieTotal_ = creature.energieTotal_;
 		experience_ = creature.experience_;
-        experienceNecessaire_ = creature.experienceNecessaire_;
+		experienceNecessaire_ = creature.experienceNecessaire_;
 		niveau_ = creature.niveau_;
 
-        while (pouvoirs_.size() != 0)
-        {
-            delete pouvoirs_.back();
-            pouvoirs_.back() = nullptr;
-            pouvoirs_.pop_back();
-        }
-        for each (Pouvoir* pouvoir in  creature.pouvoirs_)
-        {
-            pouvoirs_.push_back(new Pouvoir(*pouvoir));
-        }
+		while (pouvoirs_.size() != 0)
+		{
+			delete pouvoirs_.back();
+			pouvoirs_.back() = nullptr;
+			pouvoirs_.pop_back();
+		}
+		for each (Pouvoir* pouvoir in  creature.pouvoirs_)
+		{
+			pouvoirs_.push_back(new Pouvoir(*pouvoir));
+		}
 	}
 	return *this;
 }
@@ -298,16 +298,16 @@ std::ostream& operator<<(std::ostream& os, const Creature& creature) // TODO
 {
 	os << creature.nom_ << " a " << creature.attaque_ << " en attaque et " << creature.defense_ << " en defense, " << std::endl
 		<< "Il a " << creature.pointDeVie_ << "/" << creature.pointDeVieTotal_ << " PV et " << creature.energie_ << "/" 
-        << creature.energieTotal_ << " Energie" << std::endl
+		<< creature.energieTotal_ << " Energie" << std::endl
 		<< "Il est au niveau " << creature.niveau_ << " avec " << creature.experience_ << "d'XP" << std::endl
 		<< "Il lui manque " << creature.experienceNecessaire_ - creature.experience_ << " jusqu'au prochain niveau " << std::endl;
 	os << "Pouvoirs : " << std::endl;
 	if (!creature.pouvoirs_.empty())
-    {
-        for each (Pouvoir* pouvoir in creature.pouvoirs_)
-        {
-            std::cout << *pouvoir << std::endl;
-        }
+	{
+		for each (Pouvoir* pouvoir in creature.pouvoirs_)
+		{
+			std::cout << *pouvoir << std::endl;
+		}
 	}
 	else
 		os << creature.nom_ << " ne connait aucun pouvoir";

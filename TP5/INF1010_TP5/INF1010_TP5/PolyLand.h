@@ -12,6 +12,7 @@ Description: Polyland represente le pays que l'on va explorer, il va contenir
 #include "MondeMagique.h"
 #include "Dresseur.h"
 #include "Creature.h"
+#include "Foncteur.h"
 #include <vector>
 #include <iostream>
 using namespace std;
