@@ -75,5 +75,8 @@ protected:
 	std::vector<Pouvoir*> pouvoirs_;
 	
 };
-
+template<class PredicatBinaire>
+void Dresseur::TrierPouvoirs(PredicatBinaire foncteur) {
+	sort(pouvoirs.begin(), pouvoirs.end(), foncteur);
+}
 #endif

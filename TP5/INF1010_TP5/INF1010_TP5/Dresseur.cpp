@@ -141,16 +141,3 @@ std::ostream& operator<<(std::ostream& os, const Dresseur& dresseur)
     return os << dresseur.nom_ << " possede " << dresseur.creatures_.size() 
         << " creature(s) et appartient a l'equipe " << dresseur.equipe_ << std::endl;
 }
-template<class PredicatUnaire>
-void Dresseur::supprimerElement(PredicatUnaire foncteur) {
-	creatures_ = erase_if(creatures_.begin();creatures_.end(); fonteur); // p-e pas bon
-}
-template<class PredicatUnaire>
-Creature* Dresseur::obtenirCreatureMax(PredicatUnaire foncteur) { // surment pas bon
-	auto itr = find_if(creatures_.begin();creatures_.end(); foncteur); 
-	return *itr;
-}
-template<class PredicatUnaire>
-void Dresseur::obtenirCreatureMax(PredicatUnaire foncteur) { 
-	for_each(creatures_.begin();creatures_.end(); foncteur);
-}

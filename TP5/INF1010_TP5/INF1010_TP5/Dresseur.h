@@ -51,13 +51,6 @@ public:
 	bool operator==(const std::string& nom) const;
 	friend bool operator==(const std::string& nom, const Dresseur& dresseur);
 
-	template<class PredicatUnaire>
-	void appliquerFoncteurUnaire(PredicatUnaire foncteur);
-
-	template<class PredicatUnaire>
-	void supprimerElement(PredicatUnaire foncteur);
-
-	Creature* obtenirCreatureMax(PredicatUnaire foncteur);
 private:
 	std::string nom_;
 	std::string equipe_;
@@ -66,5 +59,17 @@ private:
 	
 
 };
-
+template<class PredicatUnaire>
+void Dresseur::supprimerElement(PredicatUnaire foncteur) {
+	creatures_ = erase_if(creatures_.begin(), creatures_.end(), fonteur); // p-e pas bon
+}
+template<class PredicatUnaire>
+Creature* Dresseur::obtenirCreatureMax(PredicatUnaire foncteur) { // surment pas bon
+	auto itr = max_element(creatures_.begin(), creatures_.end(), foncteur);
+	return *itr;
+}
+template<class PredicatUnaire>
+void Dresseur::obtenirCreatureMax(PredicatUnaire foncteur) {
+	for_each(creatures_.begin(), creatures_.end(), foncteur);
+}
 #endif
