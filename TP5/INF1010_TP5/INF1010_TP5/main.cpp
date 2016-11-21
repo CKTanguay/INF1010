@@ -36,12 +36,17 @@ int main()
 	// Creer la CREATURE MAGIQUE pokachoum en utilisant la creature existante pokachu et un bonus de 3.
 	// Le nom de pokachoum devrai ensuite etre modifie pour "Pokachoum" et sa defense passera de 2 a 7.
 	// A COMPLETER...
+	CreatureMagique pokachoum(pokachu, 3);
+	pokachoum.modifierNom("Pokachoum");
+	pokachoum.modifierDefense(7);
 
 
 	// Creer la CREATURE MAGIQUE Touflamme en utilisant la creature existante Salimouche et un bonus de 2.
 	// Le nom de Touflamme devrai ensuite etre modifie pour "Touflamme" et son attaque passera de 12 a 15.
 	// A COMPLETER...
-
+	CreatureMagique touflamme(salimouche, 2);
+	pokachoum.modifierNom("Salimouche");
+	pokachoum.modifierAttaque(15);
 
 	//Pouvoirs
 	Pouvoir bouleDeFeu("Boule de feu", 5, 5);
@@ -51,13 +56,18 @@ int main()
 	// Faites apprendre le pouvoir bouleDeFeu par Salimouche, les pouvoirs tonerre et eclair par pokachu ainsique le pouvoir
 	// tonerre par touflamme.
 	// A COMPLETER...
-
+	salimouche.apprendrePouvoir(&bouleDeFeu);
+	pokachu.apprendrePouvoir(&tonerre);
+	pokachu.apprendrePouvoir(&eclair);
+	touflamme.apprendrePouvoir(&tonerre);
 
 	PolyLand polyland;
 
 	// Ajouter les dresseurs vous et sacha ainsi que les créatures pokachu, salimouche,
 	// pokachoum et touflamme à polyland avec l'opérateur +=
 	// A COMPLETER...
+	polyland += vous;
+	polyland += sacha;
 
 	// En vous promenant dans Polyland, vous attrappez un pokachu et Sacha attrappe un salimouche et un touflamme
 	// A COMPLETER...
@@ -96,7 +106,7 @@ int main()
 		std::cout << "appliquerFoncteurUnaire: Erreur Technique!!!!" << std::endl;
 
 	std::cout << "TEST DRESSEUR : obtenir element max" << std::endl;
-	std::cout << *(vous.obtenirCreatureMax(FoncteurComparerCreature())) << std::endl;
+	std::cout << *(vous.obtenirCreatureMax(FoncteurComparerCreatures())) << std::endl;
 	std::cout << "TEST DRESSEUR : FIN obtenir element max" << std::endl;
 
 	std::cout << "TEST DRESSEUR : suppression" << std::endl;

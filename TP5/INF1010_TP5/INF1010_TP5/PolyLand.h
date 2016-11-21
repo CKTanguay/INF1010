@@ -21,6 +21,6 @@ public:
 
 	bool attraperCreature(Dresseur* dresseur, Creature* creature);
 	bool relacherCreature(Dresseur* dresseur, const std::string& nomCreature);
-
+	friend std::ostream& operator<<(std::ostream& os, const PolyLand& polyland);
 };
 #endif

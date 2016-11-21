@@ -20,4 +20,7 @@ bool PolyLand::relacherCreature(Dresseur* dresseur, const std::string& nomCreatu
 {
 	return dresseur->enleverCreature(nomCreature);
 }
+std::ostream& operator<<(std::ostream& os, const PolyLand& polyland)
+{
 
+	return os << 
