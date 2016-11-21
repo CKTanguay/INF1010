@@ -42,7 +42,7 @@ public:
 
 	void vider();
 
-	//operateur +=
+	MondeMagique//op+=
 	//operateur -=
 
 protected:
@@ -138,6 +138,15 @@ void MondeMagique<T, S>::supprimerCompagnon(PredicatUnaire foncteur)
 {
 	listCompagnon_.remove_if(listCompagnon_.begin(), listCompagnon_.end(), foncteur);
 }
+
+
+template <typename T, typename S>
+void MondeMagique<T, S>::vider()
+{
+	listMaitre_.clear();
+	listCompagnon_.clear();
+}
+
 
 
 #endif
