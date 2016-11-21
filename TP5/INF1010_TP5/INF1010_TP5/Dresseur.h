@@ -53,7 +53,7 @@ public:
 
 	void supprimerElements(PredicatUnaire foncteur);
 	Creature* obtenirCreatureMax(PredicatUnaire foncteur);
-	void obtenirCreatureMax(PredicatUnaire foncteur);
+	void appliquerFoncteurUnaire(PredicatUnaire foncteur);
 private:
 	std::string nom_;
 	std::string equipe_;
@@ -72,7 +72,7 @@ Creature* Dresseur::obtenirCreatureMax(PredicatUnaire foncteur) { // surment pas
 	return *itr;
 }
 template<class PredicatUnaire>
-void Dresseur::obtenirCreatureMax(PredicatUnaire foncteur) {
+void Dresseur::appliquerFoncteurUnaire(PredicatUnaire foncteur) {
 	for_each(creatures_.begin(), creatures_.end(), foncteur);
 }
 #endif
