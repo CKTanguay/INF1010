@@ -27,7 +27,6 @@ public:
 
 	void ajouterCompagnon(const S& compagnon);
 
-
 	void supprimer(const T& maitre);
 
 	void supprimer(const S& compagnon);
@@ -103,15 +102,27 @@ void MondeMagique<T, S>::ajouterCompagnon(const S& compagnon)
 }
 
 
+template<typename T, typename S>
+void MondeMagique<T, S>::supprimer(const T& maitre)
+{
+	auto positionM = find(listMaitre_.begin(), listMaitre_.end(), &maitre);
+	if (positionM != listMaitre_.end())
+	{
+		listMaitre_.erase(positionM);
+	}
+}
 
 
 
-
-
-
-
-
-
+template<typename T, typename S>
+void MondeMagique<T, S>::supprimer(const S& compagnon)
+{
+	auto positionC = find(listCompagnon_.begin(), listCompagnon_.end(), &compagnon);
+	if (positionC != listCompagnon_.end())
+	{
+		listCompagnon_.erase(positionC);
+	}
+}
 
 
 template<typename T, typename S>
