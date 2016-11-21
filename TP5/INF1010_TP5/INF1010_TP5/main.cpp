@@ -106,7 +106,7 @@ int main()
 
 	FoncteurCreatureVie vieCompriseEntre(80, 150);
 	vous.appliquerFoncteurUnaire(vieCompriseEntre);
-	if (vieCompriseEntre.obtenirCompteur() == 2)
+	if (vieCompriseEntre.getCompteur() == 2)
 		std::cout << "appliquerFoncteurUnaire: OK" << std::endl;
 	else
 		std::cout << "appliquerFoncteurUnaire: Erreur Technique!!!!" << std::endl;
@@ -121,14 +121,13 @@ int main()
 	unsigned int attaqueMax = 11;
 	FoncteurObtenirAttaqueCreature obtenirAttaque;
 	vous.supprimerElements(
-		std::bind(
+		std::bind(std::greater<int>()
 			/*A COMPLETER générer un opérateur > pour les entiers*/,
 			//Le bind ci-dessous permet d'appeler la méthode obtenirAttaque() de la
 			//Creature* passée en argument du foncteur lors des appels de ce dernier dans supprimerElements
-				std::bind( 
-					obtenirAttaque,
+				std::bind(obtenirAttaque, std::placeholders::_1
 					/*A COMPLETER utiliser le premier placeholder (attention aux namespace) (reçoit un Creature*)*/
-				),
+				),attaqueMax
 				/*A COMPLETER faire en sorte que le résultat de obtenirAttaque() soit comparer à attaquer max*/
 		)
 	);

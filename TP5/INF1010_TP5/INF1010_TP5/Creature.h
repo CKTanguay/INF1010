@@ -60,6 +60,9 @@ public:
 
 	virtual std::string obtenirTypeCreature() const;
 
+	template<class PredicatBinaire>
+	void trierPouvoirs(PredicatBinaire foncteur);
+
 protected:
 
 	std::string nom_;
@@ -73,6 +76,8 @@ protected:
 	unsigned int experienceNecessaire_;
 	unsigned int niveau_;
 	std::vector<Pouvoir*> pouvoirs_;
+
+
 	
 };
 template<class PredicatBinaire>

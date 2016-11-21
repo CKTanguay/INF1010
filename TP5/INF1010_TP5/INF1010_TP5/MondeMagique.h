@@ -42,12 +42,13 @@ public:
 
 	void vider();
 
-	MondeMagique//op+=
+	//MondeMagique//op+=
 	//operateur -=
 
 protected:
-	list<T*> listMaitre_;
-	list<S*> listCompagnon_;
+	std::list<S*> listCompagnon_;
+	std::list<T*> listMaitre_;
+
 
 };
 
