@@ -1,9 +1,8 @@
-/*
-Fichier: Creature.h
-Auteur(s): Alexandre MAO, Maude CARRIER et Philippe TROCLET
-Date de creation: 31 aout 2016
-Date de modification: 11 octobre 2016 par Maude Carrier
-Description: Les creatures sont des etres destines au combat 
+/**
+*\ file : Creature.h
+*\ Auteurs : Maxime Brousseau (1828528) et Christophe Kedzierski-Tanguay (1827066)
+*\ Date de dernière modification : 21/11/16
+*\ Créé le : 02/11/16
 */
 #ifndef CREATURE_H
 #define CREATURE_H
