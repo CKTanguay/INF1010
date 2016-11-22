@@ -27,6 +27,7 @@ ostream& operator<<(std::ostream& os, PolyLand& polyland)
 	for (auto it = polyland.listMaitre_.begin(); it != polyland.listMaitre_.end(); it++) {
 		cout << **it << endl;
 	}
+
 	polyland.listCompagnon_.sort(FoncteurComparerCreatures()); {
 		for (auto it = polyland.listCompagnon_.begin(); it != polyland.listCompagnon_.end(); it++)
 			cout << **it << endl;
