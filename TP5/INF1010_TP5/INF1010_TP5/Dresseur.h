@@ -57,7 +57,7 @@ public:
 	Creature* obtenirCreatureMax(PredicatUnaire foncteur);
 
 	template<typename PredicatUnaire>
-	void appliquerFoncteurUnaire(PredicatUnaire foncteur);
+	void appliquerFoncteurUnaire(PredicatUnaire& foncteur);
 
 private:
 	std::string nom_;
@@ -97,8 +97,8 @@ Creature* Dresseur::obtenirCreatureMax(PredicatUnaire foncteur)
 * \Aucune valeur de return
 */
 template<class PredicatUnaire>
-void Dresseur::appliquerFoncteurUnaire(PredicatUnaire foncteur) 
+void Dresseur::appliquerFoncteurUnaire(PredicatUnaire& foncteur) 
 {
-	for_each(creatures_.begin(), creatures_.end(), foncteur);
+	foncteur = for_each(creatures_.begin(), creatures_.end(), foncteur);
 }
 #endif
