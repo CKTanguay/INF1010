@@ -52,7 +52,7 @@ public:
 	friend bool operator==(const std::string& nom, const Dresseur& dresseur);
 
 	template<typename PredicatUnaire>
-	void supprimerElements(PredicatUnaire foncteur);
+	void supprimerElement(PredicatUnaire foncteur);
 
 	template<typename PredicatUnaire>
 	Creature* obtenirCreatureMax(PredicatUnaire foncteur);
@@ -71,11 +71,11 @@ private:
 
 
 template<class PredicatUnaire>
-void Dresseur::supprimerElements(PredicatUnaire foncteur) 
+void Dresseur::supprimerElement(PredicatUnaire foncteur) 
 {
-	auto it = remove_if(creatures_.begin(), creatures_.end(), foncteur);
-	creatures_.erase(it, creatures_.end());
-	// p-e pas bon
+	//auto it = remove_if(creatures_.begin(), creatures_.end(), foncteur);
+	//creatures_.erase(it, creatures_.end());
+	creatures_.remove_if(foncteur);
 }
 
 

@@ -18,7 +18,7 @@ Description: Programme de test
 #include "Pouvoir.h"
 #include "CreatureMagique.h"
 #include "Foncteur.h"
-
+using namespace std;
 
 int main()
 {
@@ -120,7 +120,7 @@ int main()
 	//attaque max
 	unsigned int attaqueMax = 11;
 	FoncteurObtenirAttaqueCreature obtenirAttaque;
-	vous.supprimerElements(
+	vous.supprimerElement(
 		std::bind(std::greater<int>()
 			/*A COMPLETER générer un opérateur > pour les entiers*/,
 			//Le bind ci-dessous permet d'appeler la méthode obtenirAttaque() de la
