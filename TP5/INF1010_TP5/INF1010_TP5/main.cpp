@@ -170,7 +170,7 @@ int main()
 	//Étapes: While (touflamme a encore des points de vie) { pokachu attaque }
 	//Faites bien attention à utiliser les créatures qui se trouvent dans la map, et non les créature de Polyland.
 	//Vous êtes dans un tournoi après tout !!
-	//A COMPLETER... luigi
+	//A COMPLETER...
 	while (creaturesInscrites[&sacha]->obtenirPointDeVie() > 0) {
 		creaturesInscrites[&vous]->attaquer(tonerre, *creaturesInscrites[&sacha]);
 	}

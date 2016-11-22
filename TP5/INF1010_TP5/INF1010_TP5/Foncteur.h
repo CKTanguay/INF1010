@@ -20,7 +20,8 @@ public:
 	}
 };
 
-
+// Ce foncteur prend en argument deux pointeurs de créature et renvoie true 
+// si la première créature a une attaque inférieure à celle de la deuxième.
 class FoncteurComparerCreatures
 {
 public:
@@ -33,7 +34,8 @@ public:
 	}
 };
 
-
+// Ce foncteur prend en argument deux pointeurs de dresseurs et renvoie true
+// si le premier a un nom strictement inférieur au nom du second. (alphanumérique)
 class FoncteurComparerDresseurs
 {
 public:
@@ -46,7 +48,8 @@ public:
 	}
 };
 
-
+// Ce foncteur prend en argument deux pointeurs de pouvoir et renvoie true 
+// si le premier pouvoir a un nombre de dégâts inférieur à celui du deuxième.
 class FoncteurComparerPouvoirs
 {
 public:
@@ -59,6 +62,8 @@ public:
 	}
 };
 
+// Ce foncteur prend en argument un pointeur de créature et renvoie true 
+// si cette créature a le même nom que l’attribut de la classe correspondant.
 
 class FoncteurCreatureDeMemeNom
 {
@@ -77,7 +82,8 @@ private:
 	std::string nom_;
 };
 
-
+// Ce foncteur prend en argument un pointeur de créature et renvoie true 
+// si cette créatures est égale à l’attribut creature du foncteur.
 class FoncteurEgalCreatures
 {
 public:
@@ -94,7 +100,8 @@ private:
 	Creature* creature_;
 };
 
-
+// Ce foncteur prend en argument un pointeur vers une créature et incrémente une variable interne 
+// si les points de vie de la créature sont entre ces bornes.
 class FoncteurCreatureVie
 {
 public:
@@ -119,7 +126,7 @@ private:
 	unsigned int compteur_;
 };
 
-
+// Ce foncteur permet de générer un nombre aléatoire compris dans un intervalle.
 class FoncteurGenerateurNombresAlea
 {
 public:

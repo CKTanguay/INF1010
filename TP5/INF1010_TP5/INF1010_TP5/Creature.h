@@ -80,6 +80,11 @@ protected:
 
 	
 };
+/**
+* La fonction trie le vecteur de pouvoirs selon la relation d’ordre induite par le prédicat.
+* \param [IN] Un predicat Binaire
+* \Aucune valeur de return
+*/
 template<class PredicatBinaire>
 void Creature::trierPouvoirs(PredicatBinaire foncteur) {
 	sort(pouvoirs_.begin(), pouvoirs_.end(), foncteur);

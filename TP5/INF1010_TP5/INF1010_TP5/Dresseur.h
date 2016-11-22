@@ -69,16 +69,22 @@ private:
 
 };
 
-
+/**
+* La fonction supprime tous les éléments du conteneur pour lesquels l’application du foncteur passé en argument retourne true
+* \param [IN] Un predicat Unaire
+* \Aucune valeur de return
+*/
 template<class PredicatUnaire>
 void Dresseur::supprimerElement(PredicatUnaire foncteur) 
 {
-	//auto it = remove_if(creatures_.begin(), creatures_.end(), foncteur);
-	//creatures_.erase(it, creatures_.end());
 	creatures_.remove_if(foncteur);
 }
 
-
+/**
+* La fonction retourne la créature max selon l’ordre induit par le foncteur
+* \param [IN] Un predicat Unaire
+* \Return: Creature* un pointeur vers la créature qui correspond à l'ordre du foncteur 
+*/
 template<class PredicatUnaire>
 Creature* Dresseur::obtenirCreatureMax(PredicatUnaire foncteur) 
 {
@@ -86,7 +92,11 @@ Creature* Dresseur::obtenirCreatureMax(PredicatUnaire foncteur)
 	return *itr;
 }
 
-
+/**
+* La fonction applique le foncteur à toutes les créatures du conteneur
+* \param [IN] Un predicat Unaire
+* \Aucune valeur de return
+*/
 template<class PredicatUnaire>
 void Dresseur::appliquerFoncteurUnaire(PredicatUnaire foncteur) 
 {
