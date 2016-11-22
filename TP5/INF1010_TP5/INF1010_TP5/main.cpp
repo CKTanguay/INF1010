@@ -45,8 +45,8 @@ int main()
 	// Le nom de Touflamme devrai ensuite etre modifie pour "Touflamme" et son attaque passera de 12 a 15.
 	// A COMPLETER...
 	CreatureMagique touflamme(salimouche, 2);
-	pokachoum.modifierNom("Salimouche");
-	pokachoum.modifierAttaque(15);
+	touflamme.modifierNom("Touflamme");
+	touflamme.modifierAttaque(15);
 
 	//Pouvoirs
 	Pouvoir bouleDeFeu("Boule de feu", 5, 5);
@@ -183,7 +183,7 @@ int main()
 	
 	// Supprimer Touflamme de polyland à l'aide de la méthode supprimerCompagnon et le FoncteurCreaturesDeMemeNom
 	// A COMPLETER...	
-
+	polyland.supprimerCompagnon(FoncteurCreatureDeMemeNom("Touflamme"));
 	polyland -= sacha;
 	polyland -= pokachu;
 
