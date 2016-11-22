@@ -40,10 +40,10 @@ auto Dresseur::obtenirCreatures() const
 Creature* Dresseur::obtenirUneCreature(const std::string& nom) const //À MODIFIFIER !!
 {
 	auto it =find_if(creatures_.begin(), creatures_.end(), FoncteurCreatureDeMemeNom(nom));
-	if (it != creatures_.end()) {
+	//if (it != creatures_.end()) {
 		return *it;
-	}
-	return nullptr;
+	//}
+	//return nullptr;
 }
 
 void Dresseur::modifierCreature(std::list<Creature*> creatures) //A Compléter
@@ -112,7 +112,7 @@ void Dresseur::modifierEquipe(const std::string& equipe)
 }
 
 bool Dresseur::operator==(const Dresseur& dresseur) const //A compléter
-{
+/*{
 	if (creatures_.size() == 0 && dresseur.creatures_.size() == 0)
 		return true;
 	else if (creatures_.size() != dresseur.creatures_.size())
@@ -126,7 +126,21 @@ bool Dresseur::operator==(const Dresseur& dresseur) const //A compléter
 	}
 	return true;
 }
+*/
+{
+	if (creatures_.size() == 0 && dresseur.creatures_.size() == 0)
+		return true;
+	else if (creatures_.size() != dresseur.creatures_.size())
+		return false;
 
+	for (auto it1 = dresseur.creatures_.begin(); it1 != dresseur.creatures_.end(); it1++) {
+		auto it2 = find_if(creatures_.begin(), creatures_.end(), FoncteurCreatureDeMemeNom((*it1)->obtenirNom()));
+		if (it2 == creatures_.end())
+			return false;
+	}
+
+	return true;
+}
 bool Dresseur::operator==(const std::string& nom) const
 {
 	return (nom_ == nom);

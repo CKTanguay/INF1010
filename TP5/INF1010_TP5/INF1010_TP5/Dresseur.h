@@ -81,7 +81,7 @@ void Dresseur::supprimerElement(PredicatUnaire foncteur)
 
 template<class PredicatUnaire>
 Creature* Dresseur::obtenirCreatureMax(PredicatUnaire foncteur) 
-{ // surment pas bon
+{
 	auto itr = max_element(creatures_.begin(), creatures_.end(), foncteur);
 	return *itr;
 }
