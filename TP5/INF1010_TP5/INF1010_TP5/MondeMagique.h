@@ -89,6 +89,10 @@ void MondeMagique<T, S>::setListCompagnon(const list<S*>& listCompagnon)
 }
 
 
+/**
+* La fonction ajouterMaitre ajoute un dreseur à la liste de dresseurs.
+* \param[IN] maitre Ce paramètre représente le dresseur a ajouter dans la liste.
+*/
 template<typename T, typename S>
 void MondeMagique<T, S>::ajouterMaitre(T& maitre)
 {
@@ -96,6 +100,10 @@ void MondeMagique<T, S>::ajouterMaitre(T& maitre)
 }
 
 
+/**
+* La fonction ajouterCompagnon ajoute une créature à la liste de créatures.
+* \param[IN] compagnon Ce paramètre représente la créature à ajouter dans la liste.
+*/
 template<typename T, typename S>
 void MondeMagique<T, S>::ajouterCompagnon(S& compagnon)
 {
@@ -103,6 +111,11 @@ void MondeMagique<T, S>::ajouterCompagnon(S& compagnon)
 }
 
 
+
+/**
+* La fonction supprimer retire un dreseur de la liste de dresseurs.
+* \param[IN] maitre Ce paramètre représente le dresseur à retirer de la liste.
+*/
 template<typename T, typename S>
 void MondeMagique<T, S>::supprimer(const T& maitre)
 {
@@ -114,6 +127,11 @@ void MondeMagique<T, S>::supprimer(const T& maitre)
 }
 
 
+
+/**
+* La fonction supprimer retire une créature de la liste de créatures.
+* \param[IN] compagnon Ce paramètre représente la créature à retirer de la liste.
+*/
 template<typename T, typename S>
 void MondeMagique<T, S>::supprimer(const S& compagnon)
 {
@@ -125,23 +143,33 @@ void MondeMagique<T, S>::supprimer(const S& compagnon)
 }
 
 
+/**
+* La fonction supprimerMaitre retire les dresseurs ne correspondant pas au prédicat.
+* \param[IN] foncteur Ce paramètre représente le prédicat servant à sélectionner les dreseurs à supprimer.
+*/
 template<typename T, typename S>
 template<class PredicatUnaire>
 void MondeMagique<T, S>::supprimerMaitre(PredicatUnaire foncteur)
 {
-	//listMaitre_.remove_if(listMaitre_.begin(), listMaitre_.end(), foncteur);
 	listMaitre_.remove_if(foncteur);
 }
 
+
+/**
+* La fonction supprimerCompagnon retire les créatures ne correspondant pas au prédicat.
+* \param[IN] foncteur Ce paramètre représente le prédicat servant à sélectionner les dreseurs à supprimer.
+*/
 template<typename T, typename S>
 template<class PredicatUnaire>
 void MondeMagique<T, S>::supprimerCompagnon(PredicatUnaire foncteur)
 {
-	//listCompagnon_.remove_if(listCompagnon_.begin(), listCompagnon_.end(), foncteur);
 	listCompagnon_.remove_if(foncteur);
 }
 
 
+/**
+* La fonction vider tous les éléments des deux listes.
+*/
 template <typename T, typename S>
 void MondeMagique<T, S>::vider()
 {
@@ -150,6 +178,12 @@ void MondeMagique<T, S>::vider()
 }
 
 
+
+/**
+* L'opérateur += ajoute un dreseur à la liste de dresseurs.
+* \param[IN] maitre Ce paramètre représente le dresseur à ajouter dans la liste.
+* \return La fonction retourne un monde magique.
+*/
 template<typename T, typename S>
 MondeMagique<T, S>& MondeMagique<T, S>::operator+=(T& maitre)
 {
@@ -158,6 +192,11 @@ MondeMagique<T, S>& MondeMagique<T, S>::operator+=(T& maitre)
 }
 
 
+/**
+* L'opérateur += ajoute un compagnon à la liste de créatures.
+* \param[IN] compagnon Ce paramètre représente la créature à ajouter dans la liste.
+* \return La fonction retourne un monde magique.
+*/
 template<typename T, typename S>
 MondeMagique<T, S>& MondeMagique<T, S>::operator+=(S& compagnon)
 {
@@ -166,6 +205,11 @@ MondeMagique<T, S>& MondeMagique<T, S>::operator+=(S& compagnon)
 }
 
 
+/**
+* L'opérateur -= retire un dreseur de la liste de dresseurs.
+* \param[IN] maitre Ce paramètre représente le dresseur à retirer de la liste.
+* \return La fonction retounre un monde magique.
+*/
 template<typename T, typename S>
 MondeMagique<T, S>& MondeMagique<T, S>::operator-=(const T& maitre)
 {
@@ -174,6 +218,11 @@ MondeMagique<T, S>& MondeMagique<T, S>::operator-=(const T& maitre)
 }
 
 
+/**
+* L'opérateur -= retire une créature de la liste de créatures.
+* \param[IN] compagnon Ce paramètre représente la créature à retirer de la liste.
+* \return La fonction retounre un monde magique.
+*/
 template<typename T, typename S>
 MondeMagique<T, S>& MondeMagique<T, S>::operator-=(const S& compagnon)
 {
