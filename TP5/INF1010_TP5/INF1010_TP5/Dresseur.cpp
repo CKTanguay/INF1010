@@ -110,23 +110,14 @@ void Dresseur::modifierEquipe(const std::string& equipe)
 {
 	equipe_ = equipe;
 }
-
-bool Dresseur::operator==(const Dresseur& dresseur) const //A compléter
-/*{
-	if (creatures_.size() == 0 && dresseur.creatures_.size() == 0)
-		return true;
-	else if (creatures_.size() != dresseur.creatures_.size())
-		return false;
-	auto reference(dresseur.obtenirCreatures());
-	for (auto it = creatures_.begin(); it != creatures_.end(); it++) {
-		auto itr = find_if(reference.begin(), reference.end(), FoncteurEgalCreatures(*it));
-		if (itr != creatures_.end())
-			reference.erase(itr);
-		else return false;
-	}
-	return true;
-}
+/**
+* La fonction compare deux dresseur et retourn un bool true s'ils sont pareil
+* \param [IN] dresseur Ce paramètre représente le dresseur au quelle on compare. Il est de type const, donc
+même s'il est passée en référence, il ne peut pas être modifié.
+* \return La valeur de retour de la fonction est true dresseur1==dresseur2 et false dans le cas contraire.
 */
+bool Dresseur::operator==(const Dresseur& dresseur) const //A compléter
+
 {
 	if (creatures_.size() == 0 && dresseur.creatures_.size() == 0)
 		return true;

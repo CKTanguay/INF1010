@@ -20,6 +20,10 @@ bool PolyLand::relacherCreature(Dresseur* dresseur, const std::string& nomCreatu
 {
 	return dresseur->enleverCreature(nomCreature);
 }
+/**
+* La fonction permet tout simplement l'affichage d2 la liste de dresseurs en ordre alphabétique de nom, 
+* puis la liste de créatures en ordre croissant d'attaque.
+*/
 ostream& operator<<(std::ostream& os, PolyLand& polyland)
 {
 	
