@@ -129,14 +129,14 @@ template<typename T, typename S>
 template<class PredicatUnaire>
 void MondeMagique<T, S>::supprimerMaitre(PredicatUnaire foncteur)
 {
-	listMaitre_.remove_if(listMaitre_.begin(), listMaitre_.end(), foncteur);
+	listMaitre_.remove_if(listMaitre_.begin(), listMaitre_.end(), foncteur);	//pt a retoucher avec un erase et un iterateur
 }
 
 template<typename T, typename S>
 template<class PredicatUnaire>
 void MondeMagique<T, S>::supprimerCompagnon(PredicatUnaire foncteur)
 {
-	listCompagnon_.remove_if(listCompagnon_.begin(), listCompagnon_.end(), foncteur);
+	listCompagnon_.remove_if(listCompagnon_.begin(), listCompagnon_.end(), foncteur);	//meme chose ici que  pour maitre
 }
 
 
