@@ -1,3 +1,9 @@
+/**
+*\ file : AttaqueMagiquePoison.cpp
+*\ Auteurs : Maxime Brousseau (1828528) et Christophe Kedzierski-Tanguay (1827066)
+*\ Date de dernière modification : 21/11/16
+*\ Créé le : 02/11/16
+*/
 #include "AttaqueMagiquePoison.h"
 
 AttaqueMagiquePoison::AttaqueMagiquePoison() : AttaqueMagique(MIN_DUREE_POISON), genNbAlea_(RAND_MIN_DEFAUT, RAND_MAX_DEFAUT) //MODIFIÉ
