@@ -1,8 +1,8 @@
-/*
-Fichier: AttaqueMagique.h
-Auteur(s): Maude Carrier
-Date de creation: 11 octobre 2016
-Description: Caractèrise l'attaque magique
+/**
+*\ file : AttaqueMagique.h
+*\ Auteurs : Maxime Brousseau (1828528) et Christophe Kedzierski-Tanguay (1827066)
+*\ Date de dernière modification : 21/11/16
+*\ Créé le : 02/11/16
 */
 #ifndef ETAT_CREATURE_H
 #define ETAT_CREATURE_H

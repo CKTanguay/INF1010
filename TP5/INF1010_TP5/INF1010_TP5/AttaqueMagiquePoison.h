@@ -1,8 +1,8 @@
-/*
-Fichier: AttaqueMagiquePoison.h
-Auteur(s): Maude Carrier
-Date de creation: 11 octobre 2016
-Description: La créature qui reçoit cette attaque perd de l'énergie due au poison
+/**
+*\ file : AttaqueMagiquePoison.h
+*\ Auteurs : Maxime Brousseau (1828528) et Christophe Kedzierski-Tanguay (1827066)
+*\ Date de dernière modification : 21/11/16
+*\ Créé le : 02/11/16
 */
 #ifndef ETAT_EMPOISONNE_H
 #define ETAT_EMPOISONNE_H

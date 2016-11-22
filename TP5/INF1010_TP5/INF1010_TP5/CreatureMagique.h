@@ -1,9 +1,8 @@
-/*
-Fichier: CreatureMagique.h
-Auteur(s): Philippe Troclet
-Date de creation: 30 septembre 2016
-Révision: Maude Carrier (11 octobre 2016)
-Description: Les creatures magiques peuvent bénificier d'une attaque magique
+/**
+*\ file : CreatureMagique.h
+*\ Auteurs : Maxime Brousseau (1828528) et Christophe Kedzierski-Tanguay (1827066)
+*\ Date de dernière modification : 21/11/16
+*\ Créé le : 02/11/16
 */
 #ifndef CREATURE_MAGIQUE_H
 #define CREATURE_MAGIQUE_H
@@ -17,14 +16,14 @@ public:
 	CreatureMagique();
 	CreatureMagique(const Creature& creature, unsigned int bonus);
 
-    CreatureMagique(const CreatureMagique& creatureMagique);
+	CreatureMagique(const CreatureMagique& creatureMagique);
 	CreatureMagique& operator=(const CreatureMagique& creatureMagique);
 
-    virtual ~CreatureMagique(); // À MODIFIER (si nécessaire...)
+	virtual ~CreatureMagique(); // À MODIFIER (si nécessaire...)
 
-    virtual void attaquer(const Pouvoir& pouvoir, Creature& creature); // À MODIFIER (si nécessaire...)
+	virtual void attaquer(const Pouvoir& pouvoir, Creature& creature); // À MODIFIER (si nécessaire...)
 
-    friend std::ostream& operator<<(std::ostream& os, const CreatureMagique& creature); // À MODIFIER (si nécessaire...)
+	friend std::ostream& operator<<(std::ostream& os, const CreatureMagique& creature); // À MODIFIER (si nécessaire...)
 	
 	virtual std::string obtenirTypeCreature() const;
 
@@ -36,7 +35,7 @@ public:
 	void oublierAttaqueMagique(const AttaqueMagique* attaqueMagique);
 
 private:
-    unsigned int bonus_;
+	unsigned int bonus_;
 	AttaqueMagique* attaqueMagique_;
 };
 
