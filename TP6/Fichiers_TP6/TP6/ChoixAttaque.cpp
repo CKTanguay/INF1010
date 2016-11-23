@@ -11,6 +11,7 @@ ChoixAttaque::ChoixAttaque(QWidget *parent) : QWidget(parent)
 
     // Layout principal du Widget
     //!!!!!! A COMPLETER !!!!!!
+
     //Vous devez creer un gridLayout et y placer les differents boutons
     //N'oubliez pas de mettre en place le layout sur le widget
     masquerAttaques();
