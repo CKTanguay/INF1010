@@ -106,7 +106,7 @@ void Gamebay::setUI(){
 
     //Creation du widget pour les boutons d'attaques
     //!!!!!! A COMPLETER !!!!!!
-
+    choixAttaque_= new ChoixAttaque(this);
     //Creation de l'image d'accueil
     imageAccueil_ = new QLabel(this);
     imageAccueil_->setFixedSize(600,400);
@@ -119,7 +119,9 @@ void Gamebay::setUI(){
     layoutEcran->addLayout(layoutCombat);
     //Vous devez ajouter le widget pour le choix d'attaque dans le layoutEcran
     //!!!!!! A COMPLETER !!!!!!
-
+    QGridLayout* layoutListDesAttaques = new QGridLayout();
+    layoutListDesAttaques->addWidget(choixAttaque_);
+    layoutEcran->addLayout(layoutListDesAttaques);
     layoutAffichagePrincipal->addLayout(layoutEcran);
 
     //Layout permettant d'ordonner la partie basse de la fenetre
@@ -179,7 +181,14 @@ void Gamebay::setUI(){
 
 void Gamebay::setConnections(){
     //!!!!!! A COMPLETER !!!!!!
-
+     QObject::connect(boutonStart_, SIGNAL(clicked(bool)), this, SLOT(gestionDuMenu()));
+     QObject::connect(menu_->boutonAttaques_, SIGNAL(clicked(bool)), this, SLOT(afficherAttaques()));
+     //p-e mieux si sur une ligne   ATTENTION LA VIE DE CHANGE PAS DANS LAFFICHAGE DES CREATURES SAUVAGE!
+     QObject::connect(choixAttaque_->attaque1_, SIGNAL(clicked(bool)), this, SLOT(attaquerCreatureAdverse()));
+     QObject::connect(choixAttaque_->attaque2_, SIGNAL(clicked(bool)), this, SLOT(attaquerCreatureAdverse()));
+     QObject::connect(choixAttaque_->attaque3_, SIGNAL(clicked(bool)), this, SLOT(attaquerCreatureAdverse()));
+     QObject::connect(choixAttaque_->attaque4_, SIGNAL(clicked(bool)), this, SLOT(attaquerCreatureAdverse()));
+     QObject::connect(menu_->boutonAffichageCreaturesDresseur_, SIGNAL(clicked(bool)), this, SLOT(afficherCreaturesDresseur()));
     //Connexions de differents slots sur des signaux
     QObject::connect(menu_->boutonAffichageCreatures_, SIGNAL(clicked(bool)), this, SLOT(afficherCreatures()));
     QObject::connect(menu_->boutonAffichageDresseurs_, SIGNAL(clicked(bool)), this, SLOT(afficherDresseurs()));
@@ -188,9 +197,13 @@ void Gamebay::setConnections(){
     QObject::connect(menu_->listeCreaturesDresseur_, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(changerCreature(QListWidgetItem*)));
     QObject::connect(menu_->boutonCapturer_, SIGNAL(clicked(bool)), this, SLOT(capturerCreatureAdverse()));
 }
-
+void Gamebay::afficherAttaques(){
+    //p-e ferai mieux de relier un signal pr le changement de creature
+ choixAttaque_->afficherAttaques(creatureHero_);
+}
 void Gamebay::afficherCreaturesDresseur(){
     //!!!!!! A COMPLETER !!!!!!
+    menu_->afficherListeCreaturesDresseur(polyland_->obtenirHero()); // sa marche mais p-e pas bon xd trop easy
 }
 
 void Gamebay::afficherCapture(){
