@@ -78,6 +78,8 @@ private:
 
 signals:
     //!!!!!! A COMPLETER !!!!!!
+    void CreatureAdverseVaincue(bool estVaincue);                              //ajouté
+    void CreatureVaincue(bool estVaincue);
 
 private slots:
     //!!!!!! A COMPLETER !!!!!!

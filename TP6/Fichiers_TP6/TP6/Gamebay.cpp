@@ -188,12 +188,15 @@ void Gamebay::setConnections(){
     //!!!!!! A COMPLETER !!!!!!
     QObject::connect(boutonStart_, SIGNAL(clicked(bool)), this, SLOT(gestionDuMenu()));
     QObject::connect(menu_->boutonAttaques_, SIGNAL(clicked(bool)), this, SLOT(afficherAttaques()));
+
     //p-e mieux si sur une ligne   ATTENTION LA VIE DE CHANGE PAS DANS LAFFICHAGE DES CREATURES SAUVAGE!
 
     QObject::connect(choixAttaque_->attaque1_, SIGNAL(clicked(bool)), this, SLOT(attaquerCreatureAdverse()));
     QObject::connect(choixAttaque_->attaque2_, SIGNAL(clicked(bool)), this, SLOT(attaquerCreatureAdverse()));
     QObject::connect(choixAttaque_->attaque3_, SIGNAL(clicked(bool)), this, SLOT(attaquerCreatureAdverse()));
     QObject::connect(choixAttaque_->attaque4_, SIGNAL(clicked(bool)), this, SLOT(attaquerCreatureAdverse()));
+
+
     QObject::connect(menu_->boutonAffichageCreaturesDresseur_, SIGNAL(clicked(bool)), this, SLOT(afficherCreaturesDresseur()));
 
 
@@ -204,6 +207,10 @@ void Gamebay::setConnections(){
     QObject::connect(menu_->listeCreatures_, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(debuterCombat(QListWidgetItem*)));
     QObject::connect(menu_->listeCreaturesDresseur_, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(changerCreature(QListWidgetItem*)));
     QObject::connect(menu_->boutonCapturer_, SIGNAL(clicked(bool)), this, SLOT(capturerCreatureAdverse()));
+
+    /////
+    QObject::connect(this, SIGNAL(CreatureAdverseVaincue(bool)), this, SLOT(afficherCapture()));
+    QObject::connect(menu_->boutonCapturer_, SIGNAL(clicked(bool)), this, SLOT(attaquerCreatureAdverse()));
 }
 
 
@@ -214,7 +221,7 @@ void Gamebay::afficherAttaques(){
 
 
 void Gamebay::afficherCreaturesDresseur(){
-    //!!!!!! A COMPLETER !!!!!!
+    //!!!!!! A COMPLETER !!!!!!     COMPLÉTÉ
     menu_->afficherListeCreaturesDresseur(polyland_->obtenirHero()); // sa marche mais p-e pas bon xd trop easy
 }
 
@@ -275,6 +282,7 @@ void Gamebay::changerCreature(QListWidgetItem* item){
     }else{
         //!!!!!! A COMPLETER !!!!!!
         //Sinon la creature est deja vaincue;
+        emit CreatureVaincue(true);
     }
 }
 
@@ -344,6 +352,10 @@ void Gamebay::attaquerCreatureAdverse(){
      }else{
         creatureHero_->attaquer(*(creatureHero_->obtenirPouvoirs()[3]), *creatureAdverse_);
      }
+
+     if(creatureAdverse_->obtenirPointDeVie()<=0)
+        emit CreatureAdverseVaincue(true);
+
      //On met a jour les informations des creatures
      informationsAdversaire_->modifierAffichageInformationCreature(creatureAdverse_);
      informationsDresseur_->modifierAffichageInformationCreature(creatureHero_);
@@ -371,4 +383,5 @@ void Gamebay::capturerCreatureAdverse(){
     //!!!!!! A COMPLETER !!!!!!
     QMessageBox msg;
     polyland_->attraperCreature(&polyland_->obtenirHero(), creatureAdverse_);
+    //gestion dexception
 }
