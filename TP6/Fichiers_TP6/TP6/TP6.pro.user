@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
+<<<<<<< HEAD
 <!-- Written by QtCreator 4.1.0, 2016-11-28T12:49:45. -->
+=======
+<!-- Written by QtCreator 4.1.0, 2016-11-28T10:57:36. -->
+>>>>>>> 9fe8d7c9c7d95c9fbc749c754de2a451a3d6e3eb
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -539,7 +543,7 @@
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.ProFile">TP6.pro</value>
     <value type="bool" key="Qt4ProjectManager.Qt4RunConfiguration.UseDyldImageSuffix">false</value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.UserWorkingDirectory"></value>
-    <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.UserWorkingDirectory.default"></value>
+    <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.UserWorkingDirectory.default">C:/Data/Polytechnique/Session 2/INF1010 - Programmation orientée objet/TP/INF1010/TP6/Fichiers_TP6/build-TP6-Desktop_Qt_5_7_0_MSVC2015_64bit-Debug</value>
     <value type="uint" key="RunConfiguration.QmlDebugServerPort">3768</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
