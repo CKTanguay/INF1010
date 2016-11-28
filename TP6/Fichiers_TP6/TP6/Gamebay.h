@@ -65,7 +65,7 @@ private:
 
     bool combatEnCours_;
 
-    void setUI();
+    void setUI();                                               //ajouté
     void setConnections();
     void chargerCreatures();
     void chargeDresseurs();
@@ -81,7 +81,7 @@ signals:
 
 private slots:
     //!!!!!! A COMPLETER !!!!!!
-    void afficherAttaques();
+    void afficherAttaques();                                    //ajouté
 
     void afficherCreaturesDresseur();
     void changerCreature(QListWidgetItem*);
