@@ -35,4 +35,7 @@ HEADERS  += Gamebay.h \
     Pouvoir.h \
     ObjetMagique.h \
     AffichageInformationCreature.h \
+    ExceptionAttaqueEchouee.h \
+    ExceptionCreatureMorte.h \
+    ExceptionEchecCapture.h
 

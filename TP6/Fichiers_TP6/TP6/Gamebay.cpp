@@ -353,6 +353,8 @@ void Gamebay::attaquerCreatureAdverse(){
         creatureHero_->attaquer(*(creatureHero_->obtenirPouvoirs()[3]), *creatureAdverse_);
      }
 
+
+     //ajouté!
      if(creatureAdverse_->obtenirPointDeVie()<=0)
         emit CreatureAdverseVaincue(true);
 
