@@ -6,6 +6,7 @@
 
 #include "Creature.h"
 #include "Foncteur.h"
+#include "ExceptionCreatureMorte.h"
 
 #define EXPERIENCE_NECESSAIRE_DEFAUT 100
 
@@ -103,7 +104,8 @@ void Creature::attaquer(const Pouvoir & pouvoir, Creature & creature)
 			pouvoirEstDansVector = true;
 		}
 	}
-	if (energie_ >= pouvoir.obtenirEnergieNecessaire() && pouvoirEstDansVector)
+
+    if (energie_ >= pouvoir.obtenirEnergieNecessaire() && pouvoirEstDansVector)
 	{
 		if (creature.obtenirPointDeVie() > 0) {
 			//Calcul du nombre de degat selon une formule
@@ -124,6 +126,13 @@ void Creature::attaquer(const Pouvoir & pouvoir, Creature & creature)
 				energie_ -= pouvoir.obtenirEnergieNecessaire();
 			}
         }
+
+         //ajouté
+         else
+         {
+             ExceptionCreatureMorte ecmorte;
+             throw(ecmorte);
+         }
 
 	}
 

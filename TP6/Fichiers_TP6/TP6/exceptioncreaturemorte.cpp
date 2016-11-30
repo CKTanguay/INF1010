@@ -5,6 +5,8 @@ ExceptionCreatureMorte::ExceptionCreatureMorte(const std::string & what_arg) : s
 }
 
 int ExceptionCreatureMorte::obtenirValeurCompteur()
-{ return compteur_;}
+{
+    return compteur_;
+}
 
 int ExceptionCreatureMorte::compteur_=0;
