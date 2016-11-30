@@ -1,4 +1,7 @@
 #include "Gamebay.h"
+#include "ExceptionCreatureMorte.h"
+#include "ExceptionAttaqueEchouee.h"
+#include "ExceptionEchecCapture.h"
 #include <iostream>
 
 Gamebay::Gamebay(PolyLand* polyland, QWidget *parent) :
@@ -367,6 +370,7 @@ void Gamebay::attaquerCreatureAdverse(){
      //-Un autre message lorsque cette exception a ete lance strictement moins de 5 fois
      //-Un dernier message lorsque cette exception a ete lance plus de 5 fois
 
+     //AJOUTÉ
      ExceptionCreatureMorte ecmorte;
      throw(ecmorte);
 
