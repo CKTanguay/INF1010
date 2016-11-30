@@ -25,6 +25,9 @@ Description: Widget principal qui va etre utiliser pour creer la fenetre du jeu
 #include "ChoixAttaque.h"
 #include "PolyLand.h"
 #include "AffichageInformationCreature.h"
+#include "ExceptionCreatureMorte.h"
+#include "ExceptionAttaqueEchouee.h"
+#include "ExceptionEchecCapture.h"
 
 
 namespace Ui {

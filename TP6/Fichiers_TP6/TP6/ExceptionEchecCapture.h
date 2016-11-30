@@ -9,4 +9,4 @@ public:
     ExceptionEchecCapture(const std::string & what_arg = "") : std::runtime_error(what_arg) {}
 };
 
-#endif // EXCEPTIONEHECCAPTURE_H
+#endif

@@ -125,7 +125,7 @@ void Gamebay::setUI(){
     //!!!!!! A COMPLETER !!!!!!
     QGridLayout* layoutListDesAttaques = new QGridLayout();
     layoutListDesAttaques->addWidget(choixAttaque_);
-    layoutCombat->addLayout(layoutListDesAttaques, 3, 0);   //modifié ici, mias le bug dattaque vient pas dici jen suis pas mal sur
+    layoutEcran->addLayout(layoutListDesAttaques);   //modifié ici, mias le bug dattaque vient pas dici jen suis pas mal sur
     layoutEcran->addLayout(layoutCombat);
     layoutAffichagePrincipal->addLayout(layoutEcran);
 
@@ -366,6 +366,12 @@ void Gamebay::attaquerCreatureAdverse(){
      //-Un certain message lorsque cette exception a ete lance strictement moins de 3 fois
      //-Un autre message lorsque cette exception a ete lance strictement moins de 5 fois
      //-Un dernier message lorsque cette exception a ete lance plus de 5 fois
+
+     ExceptionCreatureMorte ecmorte;
+     throw(ecmorte);
+
+
+
 }
 
 void Gamebay::gestionDuMenu(){
