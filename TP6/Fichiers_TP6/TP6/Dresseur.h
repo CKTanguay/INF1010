@@ -69,10 +69,14 @@ private:
 template<typename PredicatUnaire>
 void Dresseur::appliquerFoncteurUnaire(PredicatUnaire & froncteur) const
 {
-    for each (Creature* creature in creatures_)
+    /*for each (Creature* creature in creatures_)
     {
         froncteur(creature);
-    }
+    } */
+    for(int i=0;i<creatures_.size();i++)
+        {
+                froncteur(creatures_[i]);
+        }
 }
 
 template<typename PredicatUnaire>

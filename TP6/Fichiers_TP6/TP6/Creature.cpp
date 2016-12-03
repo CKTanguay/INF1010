@@ -7,7 +7,7 @@
 #include "Creature.h"
 #include "Foncteur.h"
 #include "ExceptionCreatureMorte.h"
-
+#include "ExceptionAttaqueEchouee.h"
 #define EXPERIENCE_NECESSAIRE_DEFAUT 100
 
 Creature::Creature() :nom_(""), attaque_(0), defense_(0), pointDeVie_(0),
@@ -135,6 +135,10 @@ void Creature::attaquer(const Pouvoir & pouvoir, Creature & creature)
          }
 
 	}
+    else {
+        ExceptionAttaqueEchouee attaqueEchouee;
+        throw (attaqueEchouee);
+    }
 
 }
 

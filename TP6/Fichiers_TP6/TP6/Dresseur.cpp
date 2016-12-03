@@ -7,10 +7,13 @@ Date de modification: 6 septembre 2016 par Maude Carrier
 
 #include "Dresseur.h"
 #include "Foncteur.h"
+#include "ExceptionEchecCapture.h"
 
-Dresseur::Dresseur() :nom_(""), equipe_("") {};
 
-Dresseur::Dresseur(const std::string& nom, const std::string& equipe) : nom_(nom), equipe_(equipe) {};
+
+Dresseur::Dresseur() :nom_(""), equipe_("") {}
+
+Dresseur::Dresseur(const std::string& nom, const std::string& equipe) : nom_(nom), equipe_(equipe) {}
 
 Dresseur::~Dresseur()
 {
@@ -56,15 +59,19 @@ void Dresseur::modifierCreature(std::vector<Creature*> creatures) //A Compl�te
 
 void Dresseur::ajouterCreature(Creature* creature)
 {
+
     //!!!!!! A COMPLETER !!!!!!
     FoncteurEgalCreatures comparaison(creature);
     auto position_creature = find_if(creatures_.begin(), creatures_.end(), comparaison);
     if (position_creature != creatures_.end()){
-
+        ExceptionEchecCapture captureEchouee;
+        throw (captureEchouee);
     }
 	else{
 		creatures_.push_back(new Creature(*creature));
-	}
+    }
+
+
 }
 
 bool Dresseur::enleverCreature(const std::string& nom)

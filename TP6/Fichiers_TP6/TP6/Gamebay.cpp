@@ -211,7 +211,7 @@ void Gamebay::setConnections(){
 
     /////
     QObject::connect(this, SIGNAL(CreatureAdverseVaincue(bool)), this, SLOT(afficherCapture()));
-    QObject::connect(menu_->boutonCapturer_, SIGNAL(clicked(bool)), this, SLOT(attaquerCreatureAdverse()));
+   // QObject::connect(menu_->boutonCapturer_, SIGNAL(clicked(bool)), this, SLOT(attaquerCreatureAdverse()));
 }
 
 
@@ -383,7 +383,10 @@ void Gamebay::attaquerCreatureAdverse(){
 
         msg.exec();
     }
-
+     catch(ExceptionAttaqueEchouee& e){
+        QMessageBox msg(QMessageBox::Icon::Critical, "Attaque impossible", "Vous n avez plus assez d energie", QMessageBox::StandardButton::Ok);
+        msg.exec();
+    }
 
     //On met a jour les informations des creatures
     informationsAdversaire_->modifierAffichageInformationCreature(creatureAdverse_);
@@ -411,7 +414,14 @@ void Gamebay::gestionDuMenu(){
 
 void Gamebay::capturerCreatureAdverse(){
     //!!!!!! A COMPLETER !!!!!!
-    QMessageBox msg;
-    polyland_->attraperCreature(&polyland_->obtenirHero(), creatureAdverse_);
+    //QMessageBox msg;
+    try{
+        polyland_->attraperCreature(&polyland_->obtenirHero(), creatureAdverse_);
+       // polyland_->obtenirHero().ajouterCreature(creatureAdverse_);
+    }
+    catch (ExceptionEchecCapture captureEchouee){
+        QMessageBox msg(QMessageBox::Icon::Critical, "Capture impossible", "Vous possedez deja cette creature", QMessageBox::StandardButton::Ok);
+        msg.exec();
+    }
     //gestion dexception
 }

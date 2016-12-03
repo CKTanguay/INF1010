@@ -6,7 +6,7 @@
 class ExceptionAttaqueEchouee : public std::runtime_error
 {
 public:
-    ExceptionAttaqueEchouee(const std::string & what_arg = "");
+    ExceptionAttaqueEchouee(const std::string & what_arg = ""):std::runtime_error(what_arg) {}
 };
 
 #endif // EXCEPTIONATTAQUEECHOUEE_H

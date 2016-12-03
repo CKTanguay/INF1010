@@ -83,7 +83,7 @@ public:
 	FoncteurCreaturesDeMemeNom(const std::string& nom) {
 		nom_ = nom;
 	}
-	~FoncteurCreaturesDeMemeNom() {};
+    ~FoncteurCreaturesDeMemeNom() {}
 
 	bool operator() (const Creature* creature) const {
 		return *creature == nom_;
