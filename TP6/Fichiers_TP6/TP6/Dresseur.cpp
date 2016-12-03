@@ -59,7 +59,7 @@ void Dresseur::modifierCreature(std::vector<Creature*> creatures) //A Compl�te
 
 void Dresseur::ajouterCreature(Creature* creature)
 {
-
+    /*
     //!!!!!! A COMPLETER !!!!!!
     FoncteurEgalCreatures comparaison(creature);
     auto position_creature = find_if(creatures_.begin(), creatures_.end(), comparaison);
@@ -69,9 +69,20 @@ void Dresseur::ajouterCreature(Creature* creature)
     }
 	else{
 		creatures_.push_back(new Creature(*creature));
-    }
+    } */
 
-
+    //test
+    bool foo = true;
+    for(int i=0;i<creatures_.size();i++)
+        {
+                if (creatures_[i]->obtenirNom() == creature->obtenirNom()){
+                    ExceptionEchecCapture captureEchouee;
+                    throw (captureEchouee);
+                    foo = false;
+                }
+        }
+    if (foo)
+        creatures_.push_back(new Creature(*creature));
 }
 
 bool Dresseur::enleverCreature(const std::string& nom)
