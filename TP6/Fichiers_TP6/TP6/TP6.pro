@@ -25,7 +25,9 @@ SOURCES += main.cpp\
     Pouvoir.cpp \
     ObjetMagique.cpp \
     AffichageInformationCreature.cpp \
-    ExceptionCreatureMorte.cpp
+    ExceptionCreatureMorte.cpp \
+    exceptionecheccapture.cpp \
+    exceptionattaqueechouee.cpp
 
 HEADERS  += Gamebay.h \
     Menu.h \
