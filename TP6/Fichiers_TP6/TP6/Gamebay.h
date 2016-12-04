@@ -3,6 +3,8 @@ Fichier: Gamebay.h
 Auteur(s): Alexandre MAO
 Date de creation: 15 Novembre 2016
 Description: Widget principal qui va etre utiliser pour creer la fenetre du jeu
+Modifier par Maxime Brousseau (1828528) et Christophe Kedzierski-Tanguay (1827066)
+Date de dernière modification 4 Décembre 2016
 */
 #ifndef GAMEBAY_H
 #define GAMEBAY_H

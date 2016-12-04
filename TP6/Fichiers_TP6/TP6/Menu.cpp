@@ -1,9 +1,6 @@
 #include "Menu.h"
 #include <QVBoxLayout>
 
-
-
-
 Menu::Menu(QWidget *parent) : QWidget(parent), opened_(false)
 {
         //Definition des boutons differents boutons

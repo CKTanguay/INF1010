@@ -71,13 +71,13 @@ void Dresseur::ajouterCreature(Creature* creature)
 		creatures_.push_back(new Creature(*creature));
     } */
 
-    //test
+    //Probleme avec le fichier de Foncteur, donc tout a été changé.
     bool foo = true;
     for(int i=0;i<creatures_.size();i++)
         {
                 if (creatures_[i]->obtenirNom() == creature->obtenirNom()){
                     ExceptionEchecCapture captureEchouee;
-                    throw (captureEchouee);
+                    throw (captureEchouee); // si le dresseur possède déja la créature l'exception captureEchouee est envoyée.
                     foo = false;
                 }
         }
