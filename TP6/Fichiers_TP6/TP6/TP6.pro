@@ -24,7 +24,10 @@ SOURCES += main.cpp\
     Polyland.cpp \
     Pouvoir.cpp \
     ObjetMagique.cpp \
-    AffichageInformationCreature.cpp
+    AffichageInformationCreature.cpp \
+    ExceptionCreatureMorte.cpp \
+    exceptionecheccapture.cpp \
+    exceptionattaqueechouee.cpp
 
 HEADERS  += Gamebay.h \
     Menu.h \
@@ -35,4 +38,7 @@ HEADERS  += Gamebay.h \
     Pouvoir.h \
     ObjetMagique.h \
     AffichageInformationCreature.h \
+    ExceptionAttaqueEchouee.h \
+    ExceptionCreatureMorte.h \
+    ExceptionEchecCapture.h
 

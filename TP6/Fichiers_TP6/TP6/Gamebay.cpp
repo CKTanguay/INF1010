@@ -1,4 +1,5 @@
 #include "Gamebay.h"
+
 #include <iostream>
 
 Gamebay::Gamebay(PolyLand* polyland, QWidget *parent) :
@@ -125,7 +126,7 @@ void Gamebay::setUI(){
     //!!!!!! A COMPLETER !!!!!!
     QGridLayout* layoutListDesAttaques = new QGridLayout();
     layoutListDesAttaques->addWidget(choixAttaque_);
-    layoutCombat->addLayout(layoutListDesAttaques, 3, 0);   //modifié ici, mias le bug dattaque vient pas dici jen suis pas mal sur
+    layoutEcran->addLayout(layoutListDesAttaques);   //modifié ici, mias le bug dattaque vient pas dici jen suis pas mal sur
     layoutEcran->addLayout(layoutCombat);
     layoutAffichagePrincipal->addLayout(layoutEcran);
 
@@ -340,30 +341,59 @@ QPixmap Gamebay::obtenirImageCreature(Creature* creature){
 
 void Gamebay::attaquerCreatureAdverse(){
     //Cette methode va permettre de voir les consequences de votre attaque sur la creature adverse
-     //!!!!!! A COMPLETER !!!!!!
-     QObject* button = QObject::sender();
-     //On va faire l'attaque en fonction du bouton clique
-     if(button == choixAttaque_->attaque1_){
-        creatureHero_->attaquer(*(creatureHero_->obtenirPouvoirs()[0]), *creatureAdverse_);
-     }else if(button == choixAttaque_->attaque2_){
-        creatureHero_->attaquer(*(creatureHero_->obtenirPouvoirs()[1]), *creatureAdverse_);
-     }else if(button == choixAttaque_->attaque3_){
-        creatureHero_->attaquer(*(creatureHero_->obtenirPouvoirs()[2]), *creatureAdverse_);
-     }else{
-        creatureHero_->attaquer(*(creatureHero_->obtenirPouvoirs()[3]), *creatureAdverse_);
-     }
+    //!!!!!! A COMPLETER !!!!!!
+    QObject* button = QObject::sender();
+    //On va faire l'attaque en fonction du bouton clique
+    try
+    {
+        if(button == choixAttaque_->attaque1_){
+           creatureHero_->attaquer(*(creatureHero_->obtenirPouvoirs()[0]), *creatureAdverse_);
+        }else if(button == choixAttaque_->attaque2_){
+           creatureHero_->attaquer(*(creatureHero_->obtenirPouvoirs()[1]), *creatureAdverse_);
+        }else if(button == choixAttaque_->attaque3_){
+           creatureHero_->attaquer(*(creatureHero_->obtenirPouvoirs()[2]), *creatureAdverse_);
+        }else{
+           creatureHero_->attaquer(*(creatureHero_->obtenirPouvoirs()[3]), *creatureAdverse_);
+        }
 
-     if(creatureAdverse_->obtenirPointDeVie()<=0)
-        emit CreatureAdverseVaincue(true);
+        if(creatureAdverse_->obtenirPointDeVie()<=0)
+           emit CreatureAdverseVaincue(true);
+    }
 
-     //On met a jour les informations des creatures
-     informationsAdversaire_->modifierAffichageInformationCreature(creatureAdverse_);
-     informationsDresseur_->modifierAffichageInformationCreature(creatureHero_);
-     //Nous vous demandons d'attraper deux types d'exception ici, a vous de voir lesquels
-     //Pour l'exception que vous trouverez pertinente, vous devez afficher :
-     //-Un certain message lorsque cette exception a ete lance strictement moins de 3 fois
-     //-Un autre message lorsque cette exception a ete lance strictement moins de 5 fois
-     //-Un dernier message lorsque cette exception a ete lance plus de 5 fois
+    catch(ExceptionCreatureMorte& ecmorte)
+    {
+        QString message;
+
+        if(ecmorte.obtenirValeurCompteur()<3)
+        {
+            message="Arrêtez c'est déjà fini!";
+        }
+
+        else if(ecmorte.obtenirValeurCompteur()<5)
+        {
+            message="Hey ca fait déjà trois fois que essayez...";
+        }
+
+        else if(ecmorte.obtenirValeurCompteur()>5)
+        {
+            message="Vous dis donc... Vous etes vraiment sadique a vous acharnez sur une pauvre creature deja morte!";
+        }
+
+        QMessageBox msg(QMessageBox::Icon::Critical, "Créature adverse déjà morte!", message, QMessageBox::StandardButton::Ok);
+
+        msg.exec();
+    }
+
+
+    //On met a jour les informations des creatures
+    informationsAdversaire_->modifierAffichageInformationCreature(creatureAdverse_);
+    informationsDresseur_->modifierAffichageInformationCreature(creatureHero_);
+    //Nous vous demandons d'attraper deux types d'exception ici, a vous de voir lesquels
+    //Pour l'exception que vous trouverez pertinente, vous devez afficher :
+    //-Un certain message lorsque cette exception a ete lance strictement moins de 3 fois
+    //-Un autre message lorsque cette exception a ete lance strictement moins de 5 fois
+    //-Un dernier message lorsque cette exception a ete lance plus de 5 fois
+
 }
 
 void Gamebay::gestionDuMenu(){
