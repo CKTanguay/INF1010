@@ -1,3 +1,12 @@
+/*
+Fichier: Gamebay.cpp
+Auteur(s): Alexandre MAO
+Date de creation: 15 Novembre 2016
+Description: Widget principal qui va etre utiliser pour creer la fenetre du jeu
+Modifier par Maxime Brousseau (1828528) et Christophe Kedzierski-Tanguay (1827066)
+Date de dernière modification 4 Décembre 2016
+*/
+
 #include "Gamebay.h"
 
 #include <iostream>
@@ -187,17 +196,18 @@ void Gamebay::setUI(){
 
 void Gamebay::setConnections(){
     //!!!!!! A COMPLETER !!!!!!
+    // Lorsque le boutonStart_ est cliqué, la gestion du menu s'ouvre.
     QObject::connect(boutonStart_, SIGNAL(clicked(bool)), this, SLOT(gestionDuMenu()));
+    // Lorsque le bouonAttaques_ du menu est cliqué, les attaques de la créature héro sont affichés.
     QObject::connect(menu_->boutonAttaques_, SIGNAL(clicked(bool)), this, SLOT(afficherAttaques()));
 
-    //p-e mieux si sur une ligne   ATTENTION LA VIE DE CHANGE PAS DANS LAFFICHAGE DES CREATURES SAUVAGE!
-
+    // Lorsque si une des quatres attaques est cliquée, la créature adverse est attaquée.
     QObject::connect(choixAttaque_->attaque1_, SIGNAL(clicked(bool)), this, SLOT(attaquerCreatureAdverse()));
     QObject::connect(choixAttaque_->attaque2_, SIGNAL(clicked(bool)), this, SLOT(attaquerCreatureAdverse()));
     QObject::connect(choixAttaque_->attaque3_, SIGNAL(clicked(bool)), this, SLOT(attaquerCreatureAdverse()));
     QObject::connect(choixAttaque_->attaque4_, SIGNAL(clicked(bool)), this, SLOT(attaquerCreatureAdverse()));
 
-
+    // Lorsque le bouton pour l'affichage des creatures de dresseur est cliquée, les créatures sont affichés.
     QObject::connect(menu_->boutonAffichageCreaturesDresseur_, SIGNAL(clicked(bool)), this, SLOT(afficherCreaturesDresseur()));
 
 
@@ -209,9 +219,8 @@ void Gamebay::setConnections(){
     QObject::connect(menu_->listeCreaturesDresseur_, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(changerCreature(QListWidgetItem*)));
     QObject::connect(menu_->boutonCapturer_, SIGNAL(clicked(bool)), this, SLOT(capturerCreatureAdverse()));
 
-    /////
+    // Lorsqu'une créature adverse est vaincue, le bouton capture devien disponible.
     QObject::connect(this, SIGNAL(CreatureAdverseVaincue(bool)), this, SLOT(afficherCapture()));
-   // QObject::connect(menu_->boutonCapturer_, SIGNAL(clicked(bool)), this, SLOT(attaquerCreatureAdverse()));
 }
 
 
@@ -223,7 +232,8 @@ void Gamebay::afficherAttaques(){
 
 void Gamebay::afficherCreaturesDresseur(){
     //!!!!!! A COMPLETER !!!!!!     COMPLÉTÉ
-    menu_->afficherListeCreaturesDresseur(polyland_->obtenirHero()); // sa marche mais p-e pas bon xd trop easy
+    //La méthode permet d'afficher les créatures du dresseur héro.
+    menu_->afficherListeCreaturesDresseur(polyland_->obtenirHero());
 }
 
 void Gamebay::afficherCapture(){
@@ -282,7 +292,7 @@ void Gamebay::changerCreature(QListWidgetItem* item){
                                                                     Qt::KeepAspectRatio));
     }else{
         //!!!!!! A COMPLETER !!!!!!
-        //Sinon la creature est deja vaincue;
+        //Sinon la creature est deja vaincue et un signal CreatureVaincue est emit.
         emit CreatureVaincue(true);
     }
 }
@@ -359,7 +369,8 @@ void Gamebay::attaquerCreatureAdverse(){
         if(creatureAdverse_->obtenirPointDeVie()<=0)
            emit CreatureAdverseVaincue(true);
     }
-
+    // on attrape l'exception qui nous précise si la créature est morte et selon le nombre de fois que
+    // l'exception a été créé une message différent sera affiché. .
     catch(ExceptionCreatureMorte& ecmorte)
     {
         QString message;
@@ -383,6 +394,7 @@ void Gamebay::attaquerCreatureAdverse(){
 
         msg.exec();
     }
+    // On attrape l'exception qui nous informe si la creature hero avait assez d'energie pour attaquer.
      catch(ExceptionAttaqueEchouee& e){
         QMessageBox msg(QMessageBox::Icon::Critical, "Attaque impossible", "Vous n avez plus assez d energie", QMessageBox::StandardButton::Ok);
         msg.exec();
@@ -414,7 +426,7 @@ void Gamebay::gestionDuMenu(){
 
 void Gamebay::capturerCreatureAdverse(){
     //!!!!!! A COMPLETER !!!!!!
-    //QMessageBox msg;
+    // Si la créature adverse ne peut pas être capturé une exception est attrapée.
     try{
         polyland_->attraperCreature(&polyland_->obtenirHero(), creatureAdverse_);
        // polyland_->obtenirHero().ajouterCreature(creatureAdverse_);

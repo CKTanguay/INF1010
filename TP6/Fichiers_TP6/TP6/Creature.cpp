@@ -130,13 +130,13 @@ void Creature::attaquer(const Pouvoir & pouvoir, Creature & creature)
          //ajouté
          else
          {
-             ExceptionCreatureMorte ecmorte;
+             ExceptionCreatureMorte ecmorte; // si la creature adverse est déja morte, l'exception ecmorte est lancée
              throw(ecmorte);
          }
 
 	}
     else {
-        ExceptionAttaqueEchouee attaqueEchouee;
+        ExceptionAttaqueEchouee attaqueEchouee; // si la créature héro n'a plus assez d'energie, l'exeption attaqueEchouee est lancée.
         throw (attaqueEchouee);
     }
 

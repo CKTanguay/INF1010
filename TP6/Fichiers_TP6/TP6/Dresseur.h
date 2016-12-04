@@ -4,6 +4,8 @@ Auteur(s): Alexandre MAO
 Date de creation: 31 aout 2016
 Date de modification:  6 septembre 2016 par Maude Carrier
 Description: les dresseurs sont les etres capables d'attraper des creatures
+Modifier par Maxime Brousseau (1828528) et Christophe Kedzierski-Tanguay (1827066)
+Date de dernière modification 4 Décembre 2016
 */
 #ifndef DRESSEUR_H
 #define DRESSEUR_H
